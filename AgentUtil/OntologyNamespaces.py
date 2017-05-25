@@ -1,17 +1,8 @@
 # -*- coding: utf-8 -*-
-"""
-File: OntoNamespaces
 
-Created on 31/01/2014 8:55
+from rdflib import Namespace
 
-Diversos namespaces utiles y algunas clases y propiedades de esos namespaces
-
-@author: bejar
-
-"""
-__author__ = 'bejar'
-
-from rdflib import Graph, RDF, RDFS, OWL, Namespace, Literal
+__author__ = 'jjm'
 
 # FIPA ACL Ontology
 ACL = Namespace("http://www.nuin.org/ontology/fipa/acl#")
@@ -38,3 +29,8 @@ GEO = Namespace('http://www.w3.org/2003/01/geo/wgs84_pos#')
 # Directory Service Ontology
 DSO = Namespace('http://www.semanticweb.org/directory-service-ontology#')
 
+# Custom agent messaging ontology
+AMO = Namespace('http://www.semanticweb.org/houcros/ontologies/2015/4/agentsMessages')
+
+# Own namespace
+ECSDI = Namespace("http://www.owl-ontologies.com/Ontologia.owl#")
