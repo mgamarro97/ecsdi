@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <link rel="">
+    <title>Traveller | Busca tu plan de viaje</title>
+</head>
+<body>
+    <h1>Plan de Viaje</h1>
+    {% if not products %}
+        <form method="post">
+            <input type="text" name="origen" placeholder="Origen..."/><br>
+            <input type="text" name="destino" placeholder="Destino..."/><br>
+            <input type="date" name="fecha_ida" placeholder="Fecha de Ida..."/><br>
+            <input type="date" name="fecha_vuelta" placeholder="Fecha de Vuelta..."/><br>
+            <input type="number" name="presupuesto" step="20.0" min="0.0" placeholder="Presupuesto máximo..."/><br>
+            <input type="submit" name="submit" value="Genera">
+        </form>
+    {% else %}
+        <form method="post">
+            <table cellpadding="5px">
+                <tr>
+                    <th><b>Aeropuerto Origen</b></th>
+                    <th><b>Aeropuerto Destino</b></th>
+                    <th><b>Fecha Ida</b></th>
+                    <th><b>Fecha Vuelta</b></th>
+                    <th><b>Compañía Aérea</b></th>
+                    <th><b>Alojamiento</b></th>
+                    <th><b>Actividades</b></th>
+                </tr>
+                {% for item in products %}
+                    <tr>
+                        <td>{{ item.aero_origen }}</td>
+                        <td>{{ item.aero_destino }}</td>
+                        <td>{{ item.f_ida }}</td>
+                        <td>{{ item.f_vuelta }}</td>
+                        <td>{{ item.c_aerea }}</td>
+                        <td>{{ item.alojamiento }}</td>
+                        <td>{{ item.actividades }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <input type="submit" name="submit" value="Aceptar">
+            <input type="submit" name="submit" value="Modificar">
+            <input type="submit" name="submit" value="Cancelar">
+        </form>
+    {% endif %}
+</body>
+</html>
