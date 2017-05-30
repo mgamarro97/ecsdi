@@ -25,7 +25,7 @@ __author__ = 'jjm'
 
 # Definimos los parametros de la linea de comandos
 parser = argparse.ArgumentParser()
-parser.add_argument('--open', help="Define si el servidor est abierto al exterior o no", action='store_true',
+parser.add_argument('--open', help="Define si el servidor esta abierto al exterior o no", action='store_true',
                     default=False)
 parser.add_argument('--port', type=int, help="Puerto de comunicacion del agente")
 parser.add_argument('--dhost', default=socket.gethostname(), help="Host del agente de directorio")
@@ -128,7 +128,7 @@ def browser_cerca():
             origen = request.form['origen']
             if origen:
                 # Subject origen
-                subject_origen = ECSDI['Restriccion_Origen' + str(get_count())]
+                subject_origen = ECSDI['Restriccion_Origen_' + str(get_count())]
                 gr.add((subject_origen, RDF.type, ECSDI.RestriccionOrigen))
                 gr.add((subject_origen, ECSDI.Origen, Literal(origen, datatype=XSD.string)))
                 # Add restricción to content
@@ -137,21 +137,35 @@ def browser_cerca():
             destino = request.form['destino']
             if destino:
                 subject_destino = ECSDI['Restriccion_Destino_' + str(get_count())]
-                gr.add((subject_marca, RDF.type, ECSDI.Restriccion_Marca))
-                gr.add((subject_marca, ECSDI.Marca, Literal(marca, datatype=XSD.string)))
-                gr.add((contentResult, ECSDI.Restringe, URIRef(subject_marca)))
-            min_price = request.form['min_price']
-            max_price = request.form['max_price']
-
-            if min_price or max_price:
-                subject_preus = ECSDI['Restriccion_Preus_' + str(get_count())]
-                gr.add((subject_preus, RDF.type, ECSDI.Rango_precio))
-                if min_price:
-                    gr.add((subject_preus, ECSDI.Precio_min, Literal(min_price)))
-                if max_price:
-                    gr.add((subject_preus, ECSDI.Precio_max, Literal(max_price)))
-                gr.add((contentResult, ECSDI.Restringe, URIRef(subject_preus)))
-
+                gr.add((subject_destino, RDF.type, ECSDI.Restriccion_Destino_))
+                gr.add((subject_destino, ECSDI.Destino, Literal(destino, datatype=XSD.string)))
+                # Add restricción to content
+                gr.add((contentResult, ECSDI.Restringe, URIRef(subject_destino)))
+            #Add restricción fecha ida
+            fecha_ida = request.form['fecha_ida']
+            if fecha_ida:
+                subject_fechaIda = ECSDI['Restriccion_FechaIda_' + str(get_count())]
+                gr.add((subject_fechaIda, RDF.type, ECSDI.Restriccion_FechaIda_))
+                gr.add((subject_fechaIda, ECSDI.FechaIda, Literal(fecha_ida, datatype=XSD.date)))
+                # Add restricción to content
+                gr.add((contentResult, ECSDI.Restringe, URIRef(subject_fechaIda)))
+            # Add restricción fecha vuelta
+            fecha_vuelta = request.form['fecha_vuelta']
+            if fecha_vuelta:
+                subject_fechaVuelta = ECSDI['Restriccion_FechaVuelta_' + str(get_count())]
+                gr.add((subject_fechaVuelta, RDF.type, ECSDI.Restriccion_FechaVuelta_))
+                gr.add((subject_fechaVuelta, ECSDI.FechaVuelta, Literal(fecha_vuelta, datatype=XSD.date)))
+                # Add restricción to content
+                gr.add((contentResult, ECSDI.Restringe, URIRef(subject_fechaVuelta)))
+            # Add restricción presupuesto
+            presupuesto = request.form['presupuesto']
+            if presupuesto:
+                subject_presupuesto = ECSDI['Restriccion_Presupuesto_' + str(get_count())]
+                gr.add((subject_presupuesto, RDF.type, ECSDI.Restriccion_Presupuesto))
+                gr.add((subject_presupuesto, ECSDI.Presupuesto, Literal(presupuesto, datatype=XSD.number)))
+                # Add restricción to content
+                gr.add((contentResult, ECSDI.Restringe, URIRef(subject_presupuesto)))
+"""
             seller = get_agent_info(agn.SellerAgent, DirectoryAgent, UserPersonalAgent, get_count())
 
             gr2 = send_message(
@@ -262,7 +276,7 @@ def browser_cerca():
                 products_matrix.append(product)
 
             return render_template('endSell.html', products=products_matrix)
-
+"""
 
 @app.route("/retorna", methods=['GET', 'POST'])
 def browser_retorna():

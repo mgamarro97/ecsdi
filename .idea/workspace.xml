@@ -1,7 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="400c3b3e-2aef-4e78-b8d9-43597a7356ca" name="Default" comment="" />
+    <list default="true" id="400c3b3e-2aef-4e78-b8d9-43597a7356ca" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/InfoSources/SPARQL/FlightRoutes.ttl.gz" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AgentUtil/APIKeys.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Agents/AgentTemplate.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Agents/SimpleInfoAgent.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Agents/templates/iface.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Agents/templates/info.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Agents/templates/riface.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Concurrencia/ComunicacionCola.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Concurrencia/ComunicacionTuberia.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Concurrencia/Cuenta.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Concurrencia/EstadoArray.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Concurrencia/EstadoManager.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Concurrencia/SincronizacionLock.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Concurrencia/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/InfoSources/API/InfoAmadeus.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/InfoSources/API/InfoFoursquare.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/InfoSources/API/InfoGooglePlaces.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/InfoSources/API/InfoOpenWeatherMap.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/InfoSources/API/InfoSkyscanner.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/InfoSources/API/InfoTourpedia.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/InfoSources/API/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/InfoSources/Readme.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/InfoSources/SPARQL/DBPediaClassesProperties.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/InfoSources/SPARQL/InfoDBFlightsRoutes.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/InfoSources/SPARQL/InfoDBPedia.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/InfoSources/SPARQL/InfoDBPediaBarcelona.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/InfoSources/SPARQL/InfoLinkedGeodata.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/InfoSources/SPARQL/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/InfoSources/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Ontologias/DirectoryServiceOntology.owl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Ontologias/README" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Ontologias/TicketsOntology.owl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Ontologias/airtravelbookingontology.owl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Ontologias/fipa-acl.owl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Ontologias/geosparql_vocab_all.rdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Ontologias/goodrelations.owl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Ontologias/google_places.owl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Ontologias/limon.owl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Ontologias/loc2act-activities-final.owl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Ontologias/proton-ext.ttl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Ontologias/proton-top.ttl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Ontologias/schema.org.rdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Ontologias/wgs84.owl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Python/01numeros.ipynb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Python/02booleanos.ipynb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Python/03tuplas.ipynb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Python/04strings.ipynb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Python/05listas.ipynb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Python/06diccionarios.ipynb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Python/07sentencias.ipynb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Python/08funciones.ipynb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Python/09modules.ipynb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Python/10clases.ipynb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Python/HelloWorld.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/RDFLib/Example1.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/RDFLib/RDFlib.ipynb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/RDFLib/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/flask/FlaskAgent.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/flask/FlaskSimple.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/flask/FlaskTest.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/flask/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/flask/templates/file.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Agents/UserPersonalAgent.py" afterPath="$PROJECT_DIR$/Agents/UserPersonalAgent.py" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -9,32 +75,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/ecsdi$SimpleDirectoryService.coverage" NAME="SimpleDirectoryService Coverage Results" MODIFIED="1496161788312" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Agents" />
+    <SUITE FILE_PATH="coverage/ecsdi$UserPersonalAgent.coverage" NAME="UserPersonalAgent Coverage Results" MODIFIED="1496161833300" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Agents" />
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="SimpleDirectoryService.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Agents/SimpleDirectoryService.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1691">
-              <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-              <folding>
-                <element signature="e#459#501#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="buscarPlanDeViaje.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/buscarPlanDeViaje.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="4" column="15" lean-forward="false" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -43,11 +90,23 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>ECSD</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Agents/SimpleDirectoryService.py" />
+        <option value="$PROJECT_DIR$/AgentUtil/ACLMessages.py" />
+        <option value="$PROJECT_DIR$/AgentUtil/OntologyNamespaces.py" />
         <option value="$PROJECT_DIR$/templates/buscarPlanDeViaje.html" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/Agents/UserPersonalAgent.py" />
       </list>
     </option>
   </component>
@@ -60,9 +119,10 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-9" />
     <option name="y" value="-9" />
-    <option name="width" value="1938" />
+    <option name="width" value="1932" />
     <option name="height" value="1048" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -82,11 +142,21 @@
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Practica_ECSDI" />
+              <option name="myItemId" value="ecsdi" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Practica_ECSDI" />
+              <option name="myItemId" value="ecsdi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ecsdi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ecsdi" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -96,25 +166,65 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Practica_ECSDI" />
+              <option name="myItemId" value="ecsdi" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Practica_ECSDI" />
+              <option name="myItemId" value="ecsdi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="InfoSources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Practica_ECSDI" />
+              <option name="myItemId" value="ecsdi" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Practica_ECSDI" />
+              <option name="myItemId" value="ecsdi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="InfoSources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="API" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ecsdi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ecsdi" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Agents" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ecsdi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ecsdi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Agents" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -134,8 +244,11 @@
       <recent name="C:\Users\Jan\FIB\4t any\2n quadri\ECSDI\Practica_ECSDI" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Jan\Documents\GitHub\ecsdi" />
+      <recent name="C:\Users\Jan\Documents\GitHub\ecsdi\Agents" />
+      <recent name="C:\Users\Jan\Documents\GitHub\ecsdi\API" />
+      <recent name="C:\Users\Jan\Documents\GitHub\ecsdi\AgentUtil" />
       <recent name="C:\Users\Jan\FIB\4t any\2n quadri\ECSDI\Practica_ECSDI\templates" />
-      <recent name="C:\Users\Jan\FIB\4t any\2n quadri\ECSDI\Practica_ECSDI\Agents" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -150,8 +263,46 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.buscarPlanDeViaje.html">
+  <component name="RunManager" selected="Python.UserPersonalAgent">
     <configuration default="false" name="buscarPlanDeViaje.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Practica_ECSDI/templates/buscarPlanDeViaje.html">
+      <method />
+    </configuration>
+    <configuration default="false" name="SimpleDirectoryService" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Agents" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Practica_ECSDI" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Agents/SimpleDirectoryService.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="UserPersonalAgent" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Agents" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Practica_ECSDI" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Agents/UserPersonalAgent.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
@@ -251,6 +402,12 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -296,12 +453,16 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method />
     </configuration>
-    <list size="1">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.buscarPlanDeViaje.html" />
+      <item index="1" class="java.lang.String" itemvalue="Python.SimpleDirectoryService" />
+      <item index="2" class="java.lang.String" itemvalue="Python.UserPersonalAgent" />
     </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.buscarPlanDeViaje.html" />
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="Python.UserPersonalAgent" />
+        <item index="1" class="java.lang.String" itemvalue="Python.SimpleDirectoryService" />
+        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.buscarPlanDeViaje.html" />
       </list>
     </recent_temporary>
   </component>
@@ -316,30 +477,37 @@
       <option name="presentableId" value="Default" />
       <updated>1495719876075</updated>
     </task>
+    <task id="LOCAL-00001" summary="New Agents">
+      <created>1495723611835</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1495723611835</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
+    <frame x="-9" y="-9" width="1932" height="1048" extended-state="0" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24973877" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -349,22 +517,80 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="New Agents" />
+    <option name="LAST_COMMIT_MESSAGE" value="New Agents" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/AgentUtil/Agent.py">
+    <entry file="file://$PROJECT_DIR$/Agents/SimpleDirectoryService.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="777">
+          <caret line="50" column="21" lean-forward="false" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
+          <folding>
+            <element signature="e#459#501#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/buscarPlanDeViaje.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="798">
+          <caret line="38" column="21" lean-forward="false" selection-start-line="30" selection-start-column="16" selection-end-line="38" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AgentUtil/OntologyNamespaces.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="35" column="65" lean-forward="true" selection-start-line="35" selection-start-column="65" selection-end-line="35" selection-end-column="65" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AgentUtil/ACLMessages.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
+        <state relative-caret-position="525">
+          <caret line="25" column="35" lean-forward="false" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Agents/UserPersonalAgent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="27" column="62" lean-forward="false" selection-start-line="27" selection-start-column="62" selection-end-line="27" selection-end-column="62" />
+          <folding>
+            <element signature="e#124#137#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Agents/SimpleDirectoryService.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding>
+            <element signature="e#459#501#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/buscarPlanDeViaje.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="15" lean-forward="false" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AgentUtil/Agent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -378,21 +604,126 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/AgentUtil/ACLMessages.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="25" column="35" lean-forward="false" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AgentUtil/OntologyNamespaces.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="35" column="65" lean-forward="false" selection-start-line="35" selection-start-column="65" selection-end-line="35" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="739">
+          <caret line="102" column="5" lean-forward="false" selection-start-line="102" selection-start-column="5" selection-end-line="102" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/buscarPlanDeViaje.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="798">
+          <caret line="38" column="21" lean-forward="false" selection-start-line="30" selection-start-column="16" selection-end-line="38" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Agents/SimpleDirectoryService.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1691">
-          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+        <state relative-caret-position="21">
+          <caret line="50" column="21" lean-forward="false" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
           <folding>
             <element signature="e#459#501#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/buscarPlanDeViaje.html">
+    <entry file="file://$PROJECT_DIR$/Concurrencia/Cuenta.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="15" lean-forward="false" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flask/templates/file.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/API/InfoAmadeus.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-308">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/InfoSources/API/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AgentUtil/APIKeys.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Agents/SimpleInfoAgent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Agents/templates/iface.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Agents/templates/info.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Agents/templates/riface.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Agents/UserPersonalAgent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="12" lean-forward="false" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+          <folding>
+            <element signature="e#124#137#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
