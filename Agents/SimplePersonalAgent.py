@@ -165,8 +165,10 @@ def infoagent_search_message(addr, ragn_uri):
 @app.route("/", methods=['GET', 'POST'])
 def browser_root():
     if request.method == 'GET':
-        return render_template('rootPersonalAgent.html')
-    else:
+        return render_template('rootPersonalAgent.html', hoteles=None, vuelos=None, actividades=None)
+    elif request.method == 'POST':
+        if request.form['submit'] == 'Generar Plan de Viaje':
+            logger.info("Enviando peticion de plan de viaje")
         usuario = request.form['usuario']
         ciudad_origen = request.form['ciudad_origen']
         ciudad_destino = request.form['ciudad_destino']
@@ -211,7 +213,7 @@ def agentbehavior1():
     Un comportamiento del agente
 
     :return:
-    """
+
 
     # Buscamos en el directorio
     # un agente de hoteles
@@ -233,7 +235,7 @@ def agentbehavior1():
 
     # Selfdestruct
     requests.get(AgentePersonal.stop)
-
+"""
 
 if __name__ == '__main__':
     # Ponemos en marcha los behaviors
