@@ -16,18 +16,16 @@ __author__ = 'javier'
 import requests
 from AgentUtil.APIKeys import WEATHERAPPID
 # Endpoint que da previsiones del tiempo a 5 dias
-WEATHER_END_POINT = 'http://api.openweathermap.org/data/2.5/forecast'
+WEATHER_END_POINT = 'api.openweathermap.org/data/2.5/forecast?q={city name},{country code}'
 
 # Hacemos el GET al servicio REST
 # Prevision del tiempo en Barcelona para los proximos 5 dias en sistema metrico
 r = requests.get(WEATHER_END_POINT,
-                 params={'q': 'Barcelona,es', 'units': 'metric',
-                         'mode': 'json', 'cnt': '10', 'APPID': WEATHERAPPID
-                         })
+                 params={'q': 'Barcelona,es', 'APPID': WEATHERAPPID})
 
 # Transformamos la respuesta de JSON a un diccionario python
 dic = r.json()
-print dic
+print (dic)
 # Imprimimos los elementos de la respuesta
 for d in dic['list']:
-    print d
+    print (d)

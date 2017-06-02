@@ -18,7 +18,7 @@ from flask import Flask, request
 from rdflib import Graph, Namespace, Literal
 from rdflib.namespace import FOAF, RDF
 
-from AgentUtil.OntoNamespaces import ACL, DSO
+from AgentUtil.OntologyNamespaces import ACL, DSO
 from AgentUtil.FlaskServer import shutdown_server
 from AgentUtil.ACLMessages import build_message, send_message, get_message_properties
 from AgentUtil.Agent import Agent
