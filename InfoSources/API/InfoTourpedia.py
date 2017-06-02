@@ -32,7 +32,7 @@ TOURPEDIA_END_POINT = 'http://tour-pedia.org/api/'
 
 # Obtenemos un atracciones en Bercelona que tengan Museu en el nombre
 r = requests.get(TOURPEDIA_END_POINT+ 'getPlaces',
-                 params={'location': 'Barcelona', 'category': 'attraction', 'name': 'Restaurant'})
+                 params={'location': 'Barcelona', 'category': 'attraction', 'name': 'Cinema'})
 
 
 dic = r.json()

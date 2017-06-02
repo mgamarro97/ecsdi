@@ -28,9 +28,6 @@ from AgentUtil.FlaskServer import shutdown_server
 from AgentUtil.ACLMessages import build_message, send_message
 from AgentUtil.Agent import Agent
 from AgentUtil.Logging import config_logger
-import sys
-#sys.path.append('/path/to/dir')
-PYTHONPATH='C:/Users/Jan/Documents/GitHub/ecsdi/Agents'
 
 # Definimos los parametros de la linea de comandos
 parser = argparse.ArgumentParser()
@@ -100,6 +97,9 @@ hoteles_list = []
 #actividades
 actividades_list = []
 
+#peticion del usuario
+info = []
+
 
 def directory_search_message(type):
     """
@@ -163,22 +163,22 @@ def infoagent_search_message(addr, ragn_uri):
     return gr
 
 @app.route("/", methods=['GET', 'POST'])
-def browser_root():
+def browser_busqueda():
     if request.method == 'GET':
-        return render_template('rootPersonalAgent.html', hoteles=None, vuelos=None, actividades=None)
+        return render_template('busqueda.html', info=None)
     elif request.method == 'POST':
-        if request.form['submit'] == 'Generar Plan de Viaje':
-            logger.info("Enviando peticion de plan de viaje")
-        usuario = request.form['usuario']
-        ciudad_origen = request.form['ciudad_origen']
-        ciudad_destino = request.form['ciudad_destino']
-        fecha_ida = request.form['fecha_ida']
-        fecha_vuelta = request.form['fecha_vuelta']
-        presupuesto = request.form['presupuesto']
+        info.append({})
+        logger.info("Enviando peticion de plan de viaje")
+        info.usuario = request.form['usuario']
+        info.ciudad_origen = request.form['ciudad_origen']
+        info.ciudad_destino = request.form['ciudad_destino']
+        info.fecha_ida = request.form['fecha_ida']
+        info.fecha_vuelta = request.form['fecha_vuelta']
+        info.presupuesto = request.form['presupuesto']
 
-        return render_template('datosPersonalAgent.html', usuario=usuario, ciudad_origen=ciudad_origen,
-                               ciudad_destino=ciudad_destino, fecha_ida=fecha_ida, fecha_vuelta=fecha_vuelta,
-                               presupuesto=presupuesto)
+        print(info.usuario)
+
+        return render_template('busqueda.html', info=info)
 
 @app.route("/Stop")
 def stop():
@@ -214,28 +214,7 @@ def agentbehavior1():
 
     :return:
 
-
-    # Buscamos en el directorio
-    # un agente de hoteles
-    gr = directory_search_message(DSO.HotelsAgent)
-
-    # Obtenemos la direccion del agente de la respuesta
-    # No hacemos ninguna comprobacion sobre si es un mensaje valido
-    msg = gr.value(predicate=RDF.type, object=ACL.FipaAclMessage)
-    content = gr.value(subject=msg, predicate=ACL.content)
-    ragn_addr = gr.value(subject=content, predicate=DSO.Address)
-    ragn_uri = gr.value(subject=content, predicate=DSO.Uri)
-
-    # Ahora mandamos un objeto de tipo request mandando una accion de tipo Search
-    # que esta en una supuesta ontologia de acciones de agentes
-    infoagent_search_message(ragn_addr, ragn_uri)
-
-    # r = requests.get(ra_stop)
-    # print r.text
-
-    # Selfdestruct
-    requests.get(AgentePersonal.stop)
-"""
+    """
 
 if __name__ == '__main__':
     # Ponemos en marcha los behaviors
