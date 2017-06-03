@@ -88,17 +88,8 @@ DirectoryAgent = Agent('DirectoryAgent',
 # Global dsgraph triplestore
 dsgraph = Graph()
 
-#vuelos
-vuelos_list = []
-
-#hoteles
-hoteles_list = []
-
-#actividades
-actividades_list = []
-
 #peticion del usuario
-info = []
+peticion = []
 
 
 def directory_search_message(type):
@@ -167,18 +158,17 @@ def browser_busqueda():
     if request.method == 'GET':
         return render_template('busqueda.html', info=None)
     elif request.method == 'POST':
-        info.append({})
         logger.info("Enviando peticion de plan de viaje")
-        info.usuario = request.form['usuario']
-        info.ciudad_origen = request.form['ciudad_origen']
-        info.ciudad_destino = request.form['ciudad_destino']
-        info.fecha_ida = request.form['fecha_ida']
-        info.fecha_vuelta = request.form['fecha_vuelta']
-        info.presupuesto = request.form['presupuesto']
+        peticion.usuario = request.form['usuario']
+        peticion.ciudad_origen = request.form['ciudad_origen']
+        peticion.ciudad_destino = request.form['ciudad_destino']
+        peticion.fecha_ida = request.form['fecha_ida']
+        peticion.fecha_vuelta = request.form['fecha_vuelta']
+        peticion.presupuesto = request.form['presupuesto']
 
-        print(info.usuario)
+        print(peticion.usuario)
 
-        return render_template('busqueda.html', info=info)
+        return render_template('busqueda.html', info=peticion)
 
 @app.route("/Stop")
 def stop():
