@@ -1,40 +1,38 @@
 # -*- coding: utf-8 -*-
 """
-filename: SimplePersonalAgent
+filename: UserPersonalAgent
 
-Antes de ejecutar hay que añadir la raiz del proyecto a la variable PYTHONPATH
-
-Ejemplo de agente que busca en el directorio y llama al agente obtenido
+Agent que implementa la interacció amb l'usuari
 
 
-Created on 09/02/2014
-
-@author: javier
+@author: casassg
 """
+import random
 
-__author__ = 'javier'
+import sys
 
-from multiprocessing import Process
-import socket
-import argparse
-
-from flask import Flask, render_template, request
-from rdflib import Graph, Namespace
-from rdflib.namespace import FOAF, RDF
 import requests
+from rdflib.namespace import FOAF
 
-from AgentUtil.OntologyNamespaces import ACL, DSO
-from AgentUtil.FlaskServer import shutdown_server
-from AgentUtil.ACLMessages import build_message, send_message
+from AgentUtil.ACLMessages import get_agent_info, send_message, build_message, get_message_properties
+from AgentUtil.OntologyNamespaces import ECSDI, ACL, DSO
+import argparse
+import socket
+from multiprocessing import Process
+from flask import Flask, render_template, request
+from rdflib import Graph, Namespace, RDF, URIRef, Literal, XSD
 from AgentUtil.Agent import Agent
+from AgentUtil.FlaskServer import shutdown_server
 from AgentUtil.Logging import config_logger
+
+__author__ = 'amazadonde'
 
 # Definimos los parametros de la linea de comandos
 parser = argparse.ArgumentParser()
 parser.add_argument('--open', help="Define si el servidor est abierto al exterior o no", action='store_true',
                     default=False)
 parser.add_argument('--port', type=int, help="Puerto de comunicacion del agente")
-parser.add_argument('--dhost', default='localhost', help="Host del agente de directorio")
+parser.add_argument('--dhost', default=socket.gethostname(), help="Host del agente de directorio")
 parser.add_argument('--dport', type=int, help="Puerto de comunicacion del agente de directorio")
 
 # Logging
@@ -45,7 +43,7 @@ args = parser.parse_args()
 
 # Configuration stuff
 if args.port is None:
-    port = 9002
+    port = 9081
 else:
     port = args.port
 
@@ -74,10 +72,10 @@ agn = Namespace("http://www.agentes.org#")
 mss_cnt = 0
 
 # Datos del Agente
-AgentePersonal = Agent('AgentePersonal',
-                       agn.AgentePersonal,
-                       'http://%s:%d/comm' % (hostname, port),
-                       'http://%s:%d/Stop' % (hostname, port))
+AgentePersonal = Agent('UserPersonalAgent',
+                          agn.UserPersonalAgent,
+                          'http://%s:%d/comm' % (hostname, port),
+                          'http://%s:%d/Stop' % (hostname, port))
 
 # Directory agent address
 DirectoryAgent = Agent('DirectoryAgent',
@@ -88,43 +86,11 @@ DirectoryAgent = Agent('DirectoryAgent',
 # Global dsgraph triplestore
 dsgraph = Graph()
 
-#peticion del usuario
-peticion = []
+# planes de viaje del usuario encontrados
+planes_usuario = []
 
-
-def directory_search_message(type):
-    """
-    Busca en el servicio de registro mandando un
-    mensaje de request con una accion Search del servicio de directorio
-
-    Podria ser mas adecuado mandar un query-ref y una descripcion de registo
-    con variables
-
-    :param type:
-    :return:
-    """
-    global mss_cnt
-    logger.info('Buscamos en el servicio de registro')
-
-    gmess = Graph()
-
-    gmess.bind('foaf', FOAF)
-    gmess.bind('dso', DSO)
-    reg_obj = agn[AgentePersonal.name + '-search']
-    gmess.add((reg_obj, RDF.type, DSO.Search))
-    gmess.add((reg_obj, DSO.AgentType, type))
-
-    msg = build_message(gmess, perf=ACL.request,
-                        sender=AgentePersonal.uri,
-                        receiver=DirectoryAgent.uri,
-                        content=reg_obj,
-                        msgcnt=mss_cnt)
-    gr = send_message(msg, DirectoryAgent.address)
-    mss_cnt += 1
-    logger.info('Recibimos informacion del agente')
-
-    return gr
-
+# planes de viaje similares enconctrados
+planes_similares = []
 
 def infoagent_search_message(addr, ragn_uri):
     """
@@ -154,21 +120,120 @@ def infoagent_search_message(addr, ragn_uri):
     return gr
 
 @app.route("/", methods=['GET', 'POST'])
-def browser_busqueda():
+def browser_cerca():
+    """
+    Permite la comunicacion con el agente via un navegador
+    via un formulario
+    """
+
+    global product_list
     if request.method == 'GET':
-        return render_template('busqueda.html', info=None)
+        return render_template('busqueda.html', plan=None)
     elif request.method == 'POST':
-        logger.info("Enviando peticion de plan de viaje")
-        peticion.usuario = request.form['usuario']
-        peticion.ciudad_origen = request.form['ciudad_origen']
-        peticion.ciudad_destino = request.form['ciudad_destino']
-        peticion.fecha_ida = request.form['fecha_ida']
-        peticion.fecha_vuelta = request.form['fecha_vuelta']
-        peticion.presupuesto = request.form['presupuesto']
+        # Peticio de cerca
+        if request.form['submit'] == 'Generar Plan de Viaje':
+            logger.info("Enviando peticion de busqueda")
 
-        print(peticion.usuario)
 
-        return render_template('busqueda.html', info=peticion)
+            """
+            # Content of the message
+            contentResult = ECSDI['Cerca_productes_' + str(get_count())]
+
+            # Graph creation
+            gr = Graph()
+            gr.add((contentResult, RDF.type, ECSDI.Cerca_productes))
+
+            # Add restriccio ciudad origen
+            ciudad_origen = request.form['ciudad_origen']
+            print(ciudad_origen)
+            if ciudad_origen:
+                # Subject origen
+                subject_origen = ECSDI['Restriccion_modelo' + str(get_count())]
+                gr.add((subject_origen, RDF.type, ECSDI.Restriccion_modelo))
+                gr.add((subject_origen, ECSDI.Modelo, Literal(subject_origen, datatype=XSD.string)))
+                # Add restriccio to content
+                gr.add((contentResult, ECSDI.Restringe, URIRef(subject_origen)))
+
+            # Add restriccio ciudad destino
+            ciudad_destino = request.form['ciudad_destino']
+            if ciudad_destino:
+                # Subject destino
+                subject_destino = ECSDI['Restriccio_Marca' + str(get_count())]
+                gr.add((subject_destino, RDF.type, ECSDI.Restriccion_Marca))
+                gr.add((subject_destino, ECSDI.Marca, Literal(subject_destino, datatype=XSD.string)))
+                # Add restriccio to content
+                gr.add((contentResult, ECSDI.Restringe, URIRef(subject_destino)))
+
+            # Add restriccio rango fechas
+            fecha_ida = request.form['fecha_ida']
+            fecha_vuelta = request.form['fecha_vuelta']
+            if fecha_ida or fecha_vuelta:
+                # Subject destino
+                subject_fechas = ECSDI['Restriccion_Preus_' + str(get_count())]
+                gr.add((subject_fechas, RDF.type, ECSDI.Rango_precio))
+                if fecha_ida:
+                    gr.add((subject_fechas, ECSDI.Precio_min, Literal(fecha_ida)))
+                if fecha_vuelta:
+                    gr.add((subject_fechas, ECSDI.Precio_max, Literal(fecha_vuelta)))
+                gr.add((contentResult, ECSDI.Restringe, URIRef(subject_fechas)))
+
+            # Add restriccio presupuesto
+            presupuesto = request.form['presupuesto']
+            if presupuesto:
+                # Subject presupuesto
+                subject_presupuesto = ECSDI['RestriccioNom' + str(get_count())]
+                gr.add((subject_presupuesto, RDF.type, ECSDI.RestriccioNom))
+                gr.add((subject_presupuesto, ECSDI.Nom, Literal(presupuesto, datatype=XSD.string)))
+                # Add restriccio to content
+                gr.add((contentResult, ECSDI.Restringe, URIRef(subject_presupuesto)))
+
+            planificador = get_agent_info(agn.AgentePlanificador, DirectoryAgent, UserPersonalAgent, get_count())
+
+            gr2 = send_message(
+                build_message(gr, perf=ACL.request, sender=UserPersonalAgent.uri, receiver=planificador.uri,
+                              msgcnt=get_count(),
+                              content=contentResult), planificador.address)
+            """
+
+            global mss_cnt
+            logger.info('Buscamos en el servicio de registro')
+
+            gmess = Graph()
+
+            gmess.bind('foaf', FOAF)
+            gmess.bind('dso', DSO)
+            reg_obj = agn[AgentePersonal.name + '-search']
+            gmess.add((reg_obj, RDF.type, DSO.Search))
+            gmess.add((reg_obj, DSO.AgentType, DSO.HotelsAgent))
+
+            msg = build_message(gmess, perf=ACL.request,
+                                sender=AgentePersonal.uri,
+                                receiver=DirectoryAgent.uri,
+                                content=reg_obj,
+                                msgcnt=mss_cnt)
+            gr = send_message(msg, DirectoryAgent.address)
+            mss_cnt += 1
+            logger.info('Recibimos informacion del agente')
+
+            # Obtenemos la direccion del agente de la respuesta
+            # No hacemos ninguna comprobacion sobre si es un mensaje valido
+            msg = gr.value(predicate=RDF.type, object=ACL.FipaAclMessage)
+            content = gr.value(subject=msg, predicate=ACL.content)
+            ragn_addr = gr.value(subject=content, predicate=DSO.Address)
+            ragn_uri = gr.value(subject=content, predicate=DSO.Uri)
+
+            # Ahora mandamos un objeto de tipo request mandando una accion de tipo Search
+            # que esta en una supuesta ontologia de acciones de agentes
+            infoagent_search_message(ragn_addr, ragn_uri)
+
+            # r = requests.get(ra_stop)
+            # print r.text
+
+            # Selfdestruct
+            requests.get(AgentePersonal.stop)
+
+            return render_template('busqueda.html', plan=product_list)
+
 
 @app.route("/Stop")
 def stop():
@@ -203,8 +268,10 @@ def agentbehavior1():
     Un comportamiento del agente
 
     :return:
-
     """
+
+    pass
+
 
 if __name__ == '__main__':
     # Ponemos en marcha los behaviors
@@ -212,7 +279,7 @@ if __name__ == '__main__':
     ab1.start()
 
     # Ponemos en marcha el servidor
-    app.run(host=hostname, port=port)
+    app.run(host=hostname, port=port, debug=True)
 
     # Esperamos a que acaben los behaviors
     ab1.join()
