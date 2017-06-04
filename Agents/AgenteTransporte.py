@@ -15,39 +15,87 @@ Asume que el agente de registro esta en el puerto 9000
 
 __author__ = 'jjm'
 
-from multiprocessing import Process, Queue
+from multiprocessing import Queue, Process
+import sys
+from AgentUtil.ACLMessages import get_agent_info, send_message, build_message, get_message_properties, register_agent
+from AgentUtil.OntologyNamespaces import ECSDI, ACL
+import argparse
 import socket
-
-from rdflib import Namespace, Graph
-from flask import Flask
-
-from AgentUtil.FlaskServer import shutdown_server
+from multiprocessing import Process
+from flask import Flask, render_template, request
+from rdflib import Graph, Namespace, RDF, URIRef, Literal, XSD, parser
 from AgentUtil.Agent import Agent
-from InfoSources.API.InfoAmadeus import Vuelo
-import json
+from AgentUtil.FlaskServer import shutdown_server
+from AgentUtil.Logging import config_logger
 
+
+# Definimos los parametros de la linea de comandos
+parser = argparse.ArgumentParser()
+parser.add_argument('--open', help="Define si el servidor est abierto al exterior o no", action='store_true',
+                    default=False)
+parser.add_argument('--port', type=int, help="Puerto de comunicacion del agente")
+parser.add_argument('--dhost', default=socket.gethostname(), help="Host del agente de directorio")
+parser.add_argument('--dport', type=int, help="Puerto de comunicacion del agente de directorio")
+
+# Logging
+logger = config_logger(level=1)
+
+# parsing de los parametros de la linea de comandos
+args = parser.parse_args()
 
 # Configuration stuff
-hostname = socket.gethostname()
-port = 9004
+if args.port is None:
+    port = 9081
+else:
+    port = args.port
 
-agn = Namespace("http://www.agentes.org#")
+if args.open is None:
+    hostname = '0.0.0.0'
+else:
+    hostname = socket.gethostname()
 
-# Contador de mensajes
-mss_cnt = 0
+if args.dport is None:
+    dport = 9001
+else:
+    dport = args.dport
 
-# Datos del Agente
+if args.dhost is None:
+    dhostname = socket.gethostname()
+else:
+    dhostname = args.dhost
+    # Agent Namespace
+    agn = Namespace("http://www.agentes.org#")
 
-AgenteTransporte = Agent('AgenteSimple',
-                       agn.AgenteSimple,
-                       'http://%s:%d/comm' % (hostname, port),
-                       'http://%s:%d/Stop' % (hostname, port))
+    # Message Count
+    mss_cnt = 0
 
-# Directory agent address
-DirectoryAgent = Agent('DirectoryAgent',
-                       agn.Directory,
-                       'http://%s:9000/Register' % hostname,
-                       'http://%s:9000/Stop' % hostname)
+    # Data Agent
+    # Datos del Agente
+    AgenteTransporte = Agent('AgenteTransporte',
+                        agn.AgenteTransporte,
+                        'http://%s:%d/comm' % (hostname, port),
+                        'http://%s:%d/Stop' % (hostname, port))
+
+    # Directory agent address
+    DirectoryAgent = Agent('DirectoryAgent',
+                           agn.Directory,
+                           'http://%s:%d/Register' % (dhostname, dport),
+                           'http://%s:%d/Stop' % (dhostname, dport))
+
+    # Global triplestore graph
+    dsGraph = Graph()
+
+    # Queue
+    queue = Queue()
+
+    # Flask app
+    app = Flask(__name__)
+
+
+def get_count():
+    global mss_cnt
+    mss_cnt += 1
+    return mss_cnt
 
 
 # Global triplestore graph
@@ -57,6 +105,23 @@ cola1 = Queue()
 
 # Flask stuff
 app = Flask(__name__)
+
+def register_message():
+    """
+    Envia un mensaje de registro al servicio de registro
+    usando una performativa Request y una accion Register del
+    servicio de directorio
+
+    :param gmess:
+    :return:
+    """
+
+    logger.info('Nos registramos')
+    logger.info(AgenteTransporte.address)
+
+    gr = register_agent(AgenteTransporte, DirectoryAgent, AgenteTransporte.uri, get_count())
+    return gr
+
 
 
 @app.route("/comm")
@@ -89,14 +154,16 @@ def tidyup():
     pass
 
 
-def agentbehavior1(cola):
+def agentbehavior1(queue):
     """
     Un comportamiento del agente
 
     :return:
     """
+    gr = register_message()
+    """""
     vuelos = Vuelo().getFlights()
-    
+    """""
     """
     print("VUELO:")
 
@@ -109,12 +176,10 @@ def agentbehavior1(cola):
     print("Aerolinea: " + vuelo["results"][0]["airline"])
     """
 
-    pass
-
 
 if __name__ == '__main__':
     # Ponemos en marcha los behaviors
-    ab1 = Process(target=agentbehavior1, args=(cola1,))
+    ab1 = Process(target=agentbehavior1, args=(queue,))
     ab1.start()
 
     # Ponemos en marcha el servidor
