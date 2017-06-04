@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="400c3b3e-2aef-4e78-b8d9-43597a7356ca" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Ontologias/Ontologia_3.5.owl" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Ontologias/Ontologia.owl" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AgentUtil/ACLMessages.py" afterPath="$PROJECT_DIR$/AgentUtil/ACLMessages.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AgentUtil/OntologyNamespaces.py" afterPath="$PROJECT_DIR$/AgentUtil/OntologyNamespaces.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Agents/AgenteTransporte.py" afterPath="$PROJECT_DIR$/Agents/AgenteTransporte.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Agents/SimpleDirectoryService.py" afterPath="$PROJECT_DIR$/Agents/SimpleDirectoryService.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Agents/SimplePersonalAgent.py" afterPath="$PROJECT_DIR$/Agents/SimplePersonalAgent.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,25 +18,26 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/ecsdi$InfoTourpedia.coverage" NAME="InfoTourpedia Coverage Results" MODIFIED="1496422697928" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/InfoSources/API" />
     <SUITE FILE_PATH="coverage/ecsdi$TransportAgent.coverage" NAME="TransportAgent Coverage Results" MODIFIED="1496481712601" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Agents" />
-    <SUITE FILE_PATH="coverage/ecsdi$SimplePersonalAgent__1_.coverage" NAME="SimplePersonalAgent (1) Coverage Results" MODIFIED="1496580715949" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Agents" />
-    <SUITE FILE_PATH="coverage/ecsdi$AgenteAlojamiento.coverage" NAME="AgenteAlojamiento Coverage Results" MODIFIED="1496481881907" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Agents" />
-    <SUITE FILE_PATH="coverage/ecsdi$SimpleDirectoryService.coverage" NAME="SimpleDirectoryService Coverage Results" MODIFIED="1496580088940" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Agents" />
-    <SUITE FILE_PATH="coverage/ecsdi$InfoAmadeus.coverage" NAME="InfoAmadeus Coverage Results" MODIFIED="1496480256454" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/InfoSources/API" />
+    <SUITE FILE_PATH="coverage/ecsdi$SimplePersonalAgent__1_.coverage" NAME="SimplePersonalAgent (1) Coverage Results" MODIFIED="1496587924736" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Agents" />
+    <SUITE FILE_PATH="coverage/ecsdi$SimpleDirectoryService.coverage" NAME="SimpleDirectoryService Coverage Results" MODIFIED="1496587894247" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Agents" />
     <SUITE FILE_PATH="coverage/ecsdi$SimplePersonalAgent.coverage" NAME="SimplePersonalAgent Coverage Results" MODIFIED="1496569006139" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Agents" />
     <SUITE FILE_PATH="coverage/ecsdi$UserPersonalAgent.coverage" NAME="UserPersonalAgent Coverage Results" MODIFIED="1496168698906" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Agents" />
-    <SUITE FILE_PATH="coverage/ecsdi$SimpleInfoAgent.coverage" NAME="SimpleInfoAgent Coverage Results" MODIFIED="1496168766814" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Agents" />
+    <SUITE FILE_PATH="coverage/ecsdi$AgenteTransporte.coverage" NAME="AgenteTransporte Coverage Results" MODIFIED="1496587907049" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Agents" />
     <SUITE FILE_PATH="coverage/ecsdi$InfoFoursquare.coverage" NAME="InfoFoursquare Coverage Results" MODIFIED="1496415726239" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/InfoSources/API" />
+    <SUITE FILE_PATH="coverage/ecsdi$AgenteAlojamiento.coverage" NAME="AgenteAlojamiento Coverage Results" MODIFIED="1496481881907" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Agents" />
+    <SUITE FILE_PATH="coverage/ecsdi$InfoAmadeus.coverage" NAME="InfoAmadeus Coverage Results" MODIFIED="1496480256454" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/InfoSources/API" />
+    <SUITE FILE_PATH="coverage/ecsdi$SimpleInfoAgent.coverage" NAME="SimpleInfoAgent Coverage Results" MODIFIED="1496168766814" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Agents" />
     <SUITE FILE_PATH="coverage/ecsdi$AgentePlanificador.coverage" NAME="AgentePlanificador Coverage Results" MODIFIED="1496580698969" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Agents" />
     <SUITE FILE_PATH="coverage/ecsdi$InfoOpenWeatherMap.coverage" NAME="InfoOpenWeatherMap Coverage Results" MODIFIED="1496415758294" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/InfoSources/API" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="SimpleDirectoryService.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SimpleDirectoryService.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Agents/SimpleDirectoryService.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2667">
-              <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+            <state relative-caret-position="4893">
+              <caret line="246" column="17" lean-forward="false" selection-start-line="246" selection-start-column="12" selection-end-line="246" selection-end-column="17" />
               <folding>
                 <element signature="e#453#495#0" expanded="true" />
               </folding>
@@ -49,8 +48,8 @@
       <file leaf-file-name="SimplePersonalAgent.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Agents/SimplePersonalAgent.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-19">
-              <caret line="99" column="49" lean-forward="false" selection-start-line="99" selection-start-column="41" selection-end-line="99" selection-end-column="49" />
+            <state relative-caret-position="183">
+              <caret line="191" column="0" lean-forward="false" selection-start-line="191" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
               <folding>
                 <element signature="e#128#141#0" expanded="true" />
               </folding>
@@ -58,20 +57,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DirectoryServiceOntology.owl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Ontologias/DirectoryServiceOntology.owl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="71" column="42" lean-forward="false" selection-start-line="71" selection-start-column="30" selection-end-line="71" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="busqueda.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Agents/templates/busqueda.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="509">
+            <state relative-caret-position="651">
               <caret line="31" column="11" lean-forward="false" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
               <folding />
             </state>
@@ -81,8 +70,8 @@
       <file leaf-file-name="OntologyNamespaces.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AgentUtil/OntologyNamespaces.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="404">
-              <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+            <state relative-caret-position="714">
+              <caret line="34" column="60" lean-forward="false" selection-start-line="34" selection-start-column="60" selection-end-line="34" selection-end-column="60" />
               <folding />
             </state>
           </provider>
@@ -91,11 +80,9 @@
       <file leaf-file-name="AgenteTransporte.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Agents/AgenteTransporte.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1580">
-              <caret line="164" column="33" lean-forward="false" selection-start-line="164" selection-start-column="33" selection-end-line="164" selection-end-column="33" />
-              <folding>
-                <marker date="1496580835144" expanded="true" signature="376:404" ph="import ..." />
-              </folding>
+            <state relative-caret-position="2562">
+              <caret line="122" column="0" lean-forward="false" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -103,7 +90,7 @@
       <file leaf-file-name="AgenteAlojamiento.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Agents/AgenteAlojamiento.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="47">
+            <state relative-caret-position="441">
               <caret line="30" column="11" lean-forward="false" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
               <folding>
                 <element signature="e#376#418#0" expanded="true" />
@@ -115,43 +102,18 @@
       <file leaf-file-name="AgentePlanificador.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Agents/AgentePlanificador.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1056">
-              <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-              <folding>
-                <marker date="1496580744975" expanded="true" signature="24:28" ph="&quot;&quot;&quot;filename: SimpleInfoAgent...&quot;&quot;&quot;" />
-              </folding>
+            <state relative-caret-position="21">
+              <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ACLMessages.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ACLMessages.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AgentUtil/ACLMessages.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-              <folding>
-                <marker date="1496580835142" expanded="true" signature="474:1462" ph="..." />
-                <marker date="1496580835142" expanded="true" signature="1498:1818" ph="..." />
-                <marker date="1496580835142" expanded="true" signature="1503:1598" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-                <marker date="1496580835142" expanded="true" signature="1853:2778" ph="..." />
-                <marker date="1496580835142" expanded="true" signature="1858:2070" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-                <marker date="1496580835142" expanded="true" signature="2084:2331" ph="..." />
-                <marker date="1496580835142" expanded="true" signature="2603:2760" ph="..." />
-                <marker date="1496580835142" expanded="true" signature="2629:2760" ph="..." />
-                <marker date="1496580835142" expanded="true" signature="2840:3594" ph="..." />
-                <marker date="1496580835142" expanded="true" signature="3660:4626" ph="..." />
-                <marker date="1496580835142" expanded="true" signature="4265:4607" ph="..." />
-                <marker date="1496580835142" expanded="true" signature="4343:4607" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="graph.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/rdflib/graph.py">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="194">
-              <caret line="1042" column="0" lean-forward="false" selection-start-line="1042" selection-start-column="0" selection-end-line="1042" selection-end-column="0" />
+              <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -176,6 +138,9 @@
       <find>Flig</find>
       <find>regis</find>
       <find>servicio</find>
+      <find>hola</find>
+      <find>print</find>
+      <find>regi</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -184,7 +149,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/AgentUtil/ACLMessages.py" />
         <option value="$PROJECT_DIR$/templates/buscarPlanDeViaje.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/Agents/UserPersonalAgent.py" />
@@ -198,14 +162,15 @@
         <option value="$PROJECT_DIR$/Agents/templates/info_busqueda.html" />
         <option value="$PROJECT_DIR$/Agents/TransportAgent.py" />
         <option value="$PROJECT_DIR$/InfoSources/API/InfoAmadeus.py" />
-        <option value="$PROJECT_DIR$/Agents/AgenteTransporte.py" />
         <option value="$PROJECT_DIR$/Agents/AgenteUsuario.py" />
         <option value="$PROJECT_DIR$/Agents/templates/busqueda.html" />
         <option value="$PROJECT_DIR$/Agents/AgenteAlojamiento.py" />
         <option value="$PROJECT_DIR$/Agents/SimpleDirectoryService.py" />
+        <option value="$PROJECT_DIR$/AgentUtil/ACLMessages.py" />
         <option value="$PROJECT_DIR$/Agents/AgentePlanificador.py" />
-        <option value="$PROJECT_DIR$/Agents/SimplePersonalAgent.py" />
         <option value="$PROJECT_DIR$/AgentUtil/OntologyNamespaces.py" />
+        <option value="$PROJECT_DIR$/Agents/AgenteTransporte.py" />
+        <option value="$PROJECT_DIR$/Agents/SimplePersonalAgent.py" />
       </list>
     </option>
   </component>
@@ -237,8 +202,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -390,7 +355,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.AgentePlanificador">
+  <component name="RunManager" selected="Python.SimplePersonalAgent (1)">
     <configuration default="false" name="SimpleDirectoryService" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -429,25 +394,6 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="AgenteAlojamiento" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Agents" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Practica_ECSDI" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Agents/AgenteAlojamiento.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
     <configuration default="false" name="SimplePersonalAgent (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -481,6 +427,25 @@
       <module name="Practica_ECSDI" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Agents/AgentePlanificador.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="AgenteTransporte" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Agents" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Practica_ECSDI" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Agents/AgenteTransporte.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -637,17 +602,17 @@
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.SimpleDirectoryService" />
       <item index="1" class="java.lang.String" itemvalue="Python.SimplePersonalAgent" />
-      <item index="2" class="java.lang.String" itemvalue="Python.AgenteAlojamiento" />
-      <item index="3" class="java.lang.String" itemvalue="Python.SimplePersonalAgent (1)" />
-      <item index="4" class="java.lang.String" itemvalue="Python.AgentePlanificador" />
+      <item index="2" class="java.lang.String" itemvalue="Python.SimplePersonalAgent (1)" />
+      <item index="3" class="java.lang.String" itemvalue="Python.AgentePlanificador" />
+      <item index="4" class="java.lang.String" itemvalue="Python.AgenteTransporte" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.SimplePersonalAgent (1)" />
-        <item index="1" class="java.lang.String" itemvalue="Python.AgentePlanificador" />
+        <item index="1" class="java.lang.String" itemvalue="Python.AgenteTransporte" />
         <item index="2" class="java.lang.String" itemvalue="Python.SimpleDirectoryService" />
-        <item index="3" class="java.lang.String" itemvalue="Python.SimplePersonalAgent" />
-        <item index="4" class="java.lang.String" itemvalue="Python.AgenteAlojamiento" />
+        <item index="3" class="java.lang.String" itemvalue="Python.AgentePlanificador" />
+        <item index="4" class="java.lang.String" itemvalue="Python.SimplePersonalAgent" />
       </list>
     </recent_temporary>
   </component>
@@ -674,7 +639,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -763,7 +727,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
           <caret line="4" column="78" lean-forward="false" selection-start-line="4" selection-start-column="68" selection-end-line="4" selection-end-column="78" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -931,14 +894,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AgentUtil/Agent.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Agents/AgentTemplate.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -946,21 +901,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/InfoSources/API/InfoAmadeus.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1575">
-          <caret line="75" column="42" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="75" selection-end-column="42" />
-          <folding>
-            <element signature="e#446#487#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Agents/SimpleInfoAgent.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="20" column="10" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -970,29 +914,58 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1239">
           <caret line="59" column="34" lean-forward="false" selection-start-line="59" selection-start-column="21" selection-end-line="59" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Ontologias/DirectoryServiceOntology.owl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1491">
+          <caret line="71" column="42" lean-forward="false" selection-start-line="71" selection-start-column="30" selection-end-line="71" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/InfoSources/API/InfoAmadeus.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="14" column="22" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AgentUtil/OntologyNamespaces.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="34" column="60" lean-forward="false" selection-start-line="34" selection-start-column="60" selection-end-line="34" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/rdflib/graph.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="509">
+          <caret line="1042" column="0" lean-forward="false" selection-start-line="1042" selection-start-column="0" selection-end-line="1042" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AgentUtil/Agent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="19" column="24" lean-forward="true" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Agents/templates/busqueda.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="509">
+        <state relative-caret-position="651">
           <caret line="31" column="11" lean-forward="false" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Ontologias/DirectoryServiceOntology.owl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="71" column="42" lean-forward="false" selection-start-line="71" selection-start-column="30" selection-end-line="71" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Agents/AgenteAlojamiento.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="47">
+        <state relative-caret-position="441">
           <caret line="30" column="11" lean-forward="false" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
           <folding>
             <element signature="e#376#418#0" expanded="true" />
@@ -1000,80 +973,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Agents/SimpleDirectoryService.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4893">
+          <caret line="246" column="17" lean-forward="false" selection-start-line="246" selection-start-column="12" selection-end-line="246" selection-end-column="17" />
+          <folding>
+            <element signature="e#453#495#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Agents/AgenteTransporte.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1580">
-          <caret line="164" column="33" lean-forward="false" selection-start-line="164" selection-start-column="33" selection-end-line="164" selection-end-column="33" />
-          <folding>
-            <marker date="1496580835144" expanded="true" signature="376:404" ph="import ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/rdflib/graph.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="1042" column="0" lean-forward="false" selection-start-line="1042" selection-start-column="0" selection-end-line="1042" selection-end-column="0" />
+        <state relative-caret-position="2562">
+          <caret line="122" column="0" lean-forward="false" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AgentUtil/ACLMessages.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-          <folding>
-            <marker date="1496580835142" expanded="true" signature="474:1462" ph="..." />
-            <marker date="1496580835142" expanded="true" signature="1498:1818" ph="..." />
-            <marker date="1496580835142" expanded="true" signature="1503:1598" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1496580835142" expanded="true" signature="1853:2778" ph="..." />
-            <marker date="1496580835142" expanded="true" signature="1858:2070" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1496580835142" expanded="true" signature="2084:2331" ph="..." />
-            <marker date="1496580835142" expanded="true" signature="2603:2760" ph="..." />
-            <marker date="1496580835142" expanded="true" signature="2629:2760" ph="..." />
-            <marker date="1496580835142" expanded="true" signature="2840:3594" ph="..." />
-            <marker date="1496580835142" expanded="true" signature="3660:4626" ph="..." />
-            <marker date="1496580835142" expanded="true" signature="4265:4607" ph="..." />
-            <marker date="1496580835142" expanded="true" signature="4343:4607" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Agents/AgentePlanificador.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1056">
-          <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-          <folding>
-            <marker date="1496580744975" expanded="true" signature="24:28" ph="&quot;&quot;&quot;filename: SimpleInfoAgent...&quot;&quot;&quot;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AgentUtil/OntologyNamespaces.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+        <state relative-caret-position="21">
+          <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Agents/SimplePersonalAgent.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-19">
-          <caret line="99" column="49" lean-forward="false" selection-start-line="99" selection-start-column="41" selection-end-line="99" selection-end-column="49" />
+        <state relative-caret-position="183">
+          <caret line="191" column="0" lean-forward="false" selection-start-line="191" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
           <folding>
             <element signature="e#128#141#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Agents/SimpleDirectoryService.py">
+    <entry file="file://$PROJECT_DIR$/AgentUtil/ACLMessages.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2667">
-          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding>
-            <element signature="e#453#495#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="194">
+          <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

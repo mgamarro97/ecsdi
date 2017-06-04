@@ -41,7 +41,6 @@ def build_message(gmess, perf, sender=None, receiver=None, content=None, msgcnt=
     gmess.add((ms, RDF.type, ACL.FipaAclMessage))
     gmess.add((ms, ACL.performative, perf))
     gmess.add((ms, ACL.sender, sender))
-    print("hola2")
     if receiver is not None:
         gmess.add((ms, ACL.receiver, receiver))
     if content is not None:

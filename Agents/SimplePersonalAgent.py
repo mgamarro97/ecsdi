@@ -92,6 +92,11 @@ planes_usuario = []
 # planes de viaje similares enconctrados
 planes_similares = []
 
+def get_count():
+    global mss_cnt
+    mss_cnt += 1
+    return mss_cnt
+
 def infoagent_search_message(addr, ragn_uri):
     """
     Envia una accion a un agente de informacion
@@ -126,7 +131,6 @@ def browser_cerca():
     via un formulario
     """
 
-    global product_list
     if request.method == 'GET':
         return render_template('busqueda.html', plan=None)
     elif request.method == 'POST':
@@ -134,8 +138,6 @@ def browser_cerca():
         if request.form['submit'] == 'Generar Plan de Viaje':
             logger.info("Enviando peticion de busqueda")
 
-
-            """
             # Content of the message
             contentResult = ECSDI['Cerca_productes_' + str(get_count())]
 
@@ -187,52 +189,14 @@ def browser_cerca():
                 # Add restriccio to content
                 gr.add((contentResult, ECSDI.Restringe, URIRef(subject_presupuesto)))
 
-            planificador = get_agent_info(agn.AgentePlanificador, DirectoryAgent, UserPersonalAgent, get_count())
+            transporte = get_agent_info(agn.AgenteTransporte, DirectoryAgent, AgentePersonal, get_count())
 
             gr2 = send_message(
-                build_message(gr, perf=ACL.request, sender=UserPersonalAgent.uri, receiver=planificador.uri,
+                build_message(gr, perf=ACL.request, sender=AgentePersonal.uri, receiver=transporte.uri,
                               msgcnt=get_count(),
-                              content=contentResult), planificador.address)
-            """
+                              content=contentResult), transporte.address)
 
-            global mss_cnt
-            logger.info('Buscamos en el servicio de registro')
-
-            gmess = Graph()
-
-            gmess.bind('foaf', FOAF)
-            gmess.bind('dso', DSO)
-            reg_obj = agn[AgentePersonal.name + '-search']
-            gmess.add((reg_obj, RDF.type, DSO.Search))
-            gmess.add((reg_obj, DSO.AgentType, DSO.HotelsAgent))
-
-            msg = build_message(gmess, perf=ACL.request,
-                                sender=AgentePersonal.uri,
-                                receiver=DirectoryAgent.uri,
-                                content=reg_obj,
-                                msgcnt=mss_cnt)
-            gr = send_message(msg, DirectoryAgent.address)
-            mss_cnt += 1
-            logger.info('Recibimos informacion del agente')
-
-            # Obtenemos la direccion del agente de la respuesta
-            # No hacemos ninguna comprobacion sobre si es un mensaje valido
-            msg = gr.value(predicate=RDF.type, object=ACL.FipaAclMessage)
-            content = gr.value(subject=msg, predicate=ACL.content)
-            ragn_addr = gr.value(subject=content, predicate=DSO.Address)
-            ragn_uri = gr.value(subject=content, predicate=DSO.Uri)
-
-            # Ahora mandamos un objeto de tipo request mandando una accion de tipo Search
-            # que esta en una supuesta ontologia de acciones de agentes
-            infoagent_search_message(ragn_addr, ragn_uri)
-
-            # r = requests.get(ra_stop)
-            # print r.text
-
-            # Selfdestruct
-            requests.get(AgentePersonal.stop)
-
-            return render_template('busqueda.html', plan=product_list)
+            return render_template('busqueda.html', plan=gr2)
 
 
 @app.route("/Stop")
@@ -269,7 +233,7 @@ def agentbehavior1():
 
     :return:
     """
-
+    print (DirectoryAgent.address)
     pass
 
 

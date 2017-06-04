@@ -32,4 +32,4 @@ DSO = Namespace('http://www.semanticweb.org/directory-service-ontology#')
 # Custom agent messaging ontology
 AMO = Namespace('http://www.semanticweb.org/houcros/ontologies/2015/4/agentsMessages')
 
-ECSDI = Namespace('http://www.owl-ontologies.com/Ontologia.owl#')
+ECSDI = Namespace('http://www.owl-ontologies.com/ECSDIAmazon.owl#')

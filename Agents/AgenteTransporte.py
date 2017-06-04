@@ -12,6 +12,7 @@ Tiene una funcion AgentBehavior1 que se lanza como un thread concurrente
 Asume que el agente de registro esta en el puerto 9000
 
 """
+from InfoSources.API.InfoAmadeus import Vuelo
 
 __author__ = 'jjm'
 
@@ -22,7 +23,7 @@ from AgentUtil.OntologyNamespaces import ECSDI, ACL
 import argparse
 import socket
 from multiprocessing import Process
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, json
 from rdflib import Graph, Namespace, RDF, URIRef, Literal, XSD, parser
 from AgentUtil.Agent import Agent
 from AgentUtil.FlaskServer import shutdown_server
@@ -45,7 +46,7 @@ args = parser.parse_args()
 
 # Configuration stuff
 if args.port is None:
-    port = 9081
+    port = 9082
 else:
     port = args.port
 
@@ -129,10 +130,93 @@ def comunicacion():
     """
     Entrypoint de comunicacion
     """
-    global dsgraph
-    global mss_cnt
-    pass
+    logger.info('Peticion de informacion recibida')
+    global dsGraph
 
+    message = request.args['content']
+    gm = Graph()
+    gm.parse(data=message)
+
+    msgdic = get_message_properties(gm)
+
+    gr = None
+
+    if msgdic is None:
+        # Si no es, respondemos que no hemos entendido el mensaje
+        gr = build_message(Graph(), ACL['not-understood'], sender=AgenteTransporte.uri, msgcnt=get_count())
+    else:
+        # Obtenemos la performativa
+        if msgdic['performative'] != ACL.request:
+            # Si no es un request, respondemos que no hemos entendido el mensaje
+            gr = build_message(Graph(),
+                               ACL['not-understood'],
+                               sender=DirectoryAgent.uri,
+                               msgcnt=get_count())
+        else:
+            # Extraemos el objeto del contenido que ha de ser una accion de la ontologia
+            # de registro
+            content = msgdic['content']
+            # Averiguamos el tipo de la accion
+            accion = gm.value(subject=content, predicate=RDF.type)
+
+            # Accion de busqueda
+            if accion == ECSDI.Cerca_productes:
+                restriccions = gm.objects(content, ECSDI.Restringe)
+                restriccions_dict = {}
+                for restriccio in restriccions:
+                    if gm.value(subject=restriccio, predicate=RDF.type) == ECSDI.Restriccion_Marca:
+                        destino = gm.value(subject=restriccio, predicate=ECSDI.Marca)
+                        logger.info('Ciudad Destino: ' + destino)
+                        restriccions_dict['brand'] = destino
+                    elif gm.value(subject=restriccio, predicate=RDF.type) == ECSDI.Restriccion_modelo:
+                        origen = gm.value(subject=restriccio, predicate=ECSDI.Modelo)
+                        logger.info('Ciudad Origen: ' + origen)
+                        restriccions_dict['model'] = origen
+                    elif gm.value(subject=restriccio, predicate=RDF.type) == ECSDI.Rango_precio:
+                        ida = gm.value(subject=restriccio, predicate=ECSDI.Precio_max)
+                        vuelta = gm.value(subject=restriccio, predicate=ECSDI.Precio_min)
+                        if ida:
+                            logger.info('Fecha Ida: ' + ida)
+                            restriccions_dict['min_price'] = ida.toPython()
+                        if vuelta:
+                            logger.info('Fecha Vuelta: ' + vuelta)
+                            restriccions_dict['max_price'] = vuelta.toPython()
+                    elif gm.value(subject=restriccio, predicate=RDF.type) == ECSDI.RestriccioNom:
+                        presupuesto = gm.value(subject=restriccio, predicate=ECSDI.Nom)
+                        logger.info('Presupuesto: ' + presupuesto)
+                        restriccions_dict['name'] = presupuesto
+
+                gr = findProducts(**restriccions_dict)
+
+    logger.info('Respondemos a la peticion')
+
+    serialize = gr.serialize(format='xml')
+    return serialize, 200
+
+def findProducts(presuppuesto=None, destino=None, ida=0.0, vuelta=sys.float_info.max, origen=None):
+    graph = Graph()
+    vuelos = Vuelo.getFlights()
+    result = Graph()
+    result.bind('ECSDI', ECSDI)
+    vuelo = json.loads(json.dumps(vuelos, ensure_ascii=False))
+    i = 0
+    origen = vuelo["origin"]
+    while i < 10:
+        destination = vuelo["results"][i]["destination"]
+        departure = vuelo["results"][i]["departure_date"]
+        return_date = vuelo["results"][i]["return_date"]
+        price = vuelo["results"][0]["price"]
+        aerolinea = vuelo["results"][0]["airline"]
+        logger.debug(origen, destination, departure, return_date, price, aerolinea)
+        subject = aerolinea + "_" + departure
+        result.add((subject, RDF.type, ECSDI.Producte))
+        result.add((subject, ECSDI.Marca, Literal(origen, datatype=XSD.string)))
+        result.add((subject, ECSDI.Modelo, Literal(destination, datatype=XSD.string)))
+        result.add((subject, ECSDI.Precio, Literal(departure, datatype=XSD.date)))
+        result.add((subject, ECSDI.Peso, Literal(return_date, datatype=XSD.date)))
+        result.add((subject, ECSDI.Nombre, Literal(price, datatype=XSD.float)))
+        result.add((subject, ECSDI.Nombre, Literal(aerolinea, datatype=XSD.string)))
+    return result
 
 @app.route("/Stop")
 def stop():
