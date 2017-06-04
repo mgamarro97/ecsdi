@@ -134,15 +134,19 @@ def register():
         logger.info('Peticion de busqueda')
 
         agn_type = gm.value(subject=content, predicate=DSO.AgentType)
-        rsearch = dsgraph.triples((None, DSO.AgentType, agn_type))
+
+        rsearch = dsgraph.value(predicate= DSO.AgentType, object = agn_type)
         if rsearch is not None:
-            agn_uri = rsearch.next()[0]
+            agn_uri = rsearch
             agn_add = dsgraph.value(subject=agn_uri, predicate=DSO.Address)
+            agn_name = dsgraph.value(subject=agn_uri, predicate=FOAF.name)
             gr = Graph()
             gr.bind('dso', DSO)
             rsp_obj = agn['Directory-response']
             gr.add((rsp_obj, DSO.Address, agn_add))
             gr.add((rsp_obj, DSO.Uri, agn_uri))
+            gr.add((rsp_obj, FOAF.name, agn_name))
+            logger.info("Agente encontrado: " + agn_name)
             return build_message(gr,
                                  ACL.inform,
                                  sender=DirectoryAgent.uri,

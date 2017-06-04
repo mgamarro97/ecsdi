@@ -53,7 +53,7 @@ else:
     hostname = socket.gethostname()
 
 if args.dport is None:
-    dport = 9000
+    dport = 9001
 else:
     dport = args.dport
 
@@ -191,10 +191,15 @@ def browser_cerca():
 
             transporte = get_agent_info(agn.AgenteTransporte, DirectoryAgent, AgentePersonal, get_count())
 
+
+            logger.info("%s, %s, %s", transporte.name, transporte.address, transporte.uri)
+
             gr2 = send_message(
                 build_message(gr, perf=ACL.request, sender=AgentePersonal.uri, receiver=transporte.uri,
                               msgcnt=get_count(),
                               content=contentResult), transporte.address)
+            r = get_message_properties(gr2)
+            logger.info(r)
 
             return render_template('busqueda.html', plan=gr2)
 

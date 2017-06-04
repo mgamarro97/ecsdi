@@ -195,20 +195,22 @@ def comunicacion():
 
 def findProducts(presuppuesto=None, destino=None, ida=0.0, vuelta=sys.float_info.max, origen=None):
     graph = Graph()
-    vuelos = Vuelo.getFlights()
+    vuelos = Vuelo().getFlights()
     result = Graph()
     result.bind('ECSDI', ECSDI)
     vuelo = json.loads(json.dumps(vuelos, ensure_ascii=False))
     i = 0
     origen = vuelo["origin"]
+
     while i < 10:
         destination = vuelo["results"][i]["destination"]
         departure = vuelo["results"][i]["departure_date"]
         return_date = vuelo["results"][i]["return_date"]
-        price = vuelo["results"][0]["price"]
-        aerolinea = vuelo["results"][0]["airline"]
-        logger.debug(origen, destination, departure, return_date, price, aerolinea)
-        subject = aerolinea + "_" + departure
+        price = vuelo["results"][i]["price"]
+        aerolinea = vuelo["results"][i]["airline"]
+        print(origen+" "+destination+" "+departure+" "+return_date+" "+price+" "+aerolinea)
+        logger.info("%s", i)
+        subject = ECSDI[aerolinea + "_" + departure]
         result.add((subject, RDF.type, ECSDI.Producte))
         result.add((subject, ECSDI.Marca, Literal(origen, datatype=XSD.string)))
         result.add((subject, ECSDI.Modelo, Literal(destination, datatype=XSD.string)))
@@ -216,6 +218,7 @@ def findProducts(presuppuesto=None, destino=None, ida=0.0, vuelta=sys.float_info
         result.add((subject, ECSDI.Peso, Literal(return_date, datatype=XSD.date)))
         result.add((subject, ECSDI.Nombre, Literal(price, datatype=XSD.float)))
         result.add((subject, ECSDI.Nombre, Literal(aerolinea, datatype=XSD.string)))
+        i=i+1
     return result
 
 @app.route("/Stop")
