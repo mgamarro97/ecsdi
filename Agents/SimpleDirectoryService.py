@@ -17,7 +17,7 @@ directory-service-ontology.owl
 @author: javier
 """
 
-__author__ = 'traveller'
+__author__ = 'jjm'
 
 from multiprocessing import Process, Queue
 import socket
@@ -50,7 +50,7 @@ args = parser.parse_args()
 
 # Configuration stuff
 if args.port is None:
-    port = 9000
+    port =9001
 else:
     port = args.port
 
@@ -110,6 +110,8 @@ def register():
         dsgraph.add((agn_uri, FOAF.name, agn_name))
         dsgraph.add((agn_uri, DSO.Address, agn_add))
         dsgraph.add((agn_uri, DSO.AgentType, agn_type))
+
+        logger.info('Registrado agente: ' + agn_name + ' - tipus:' + agn_type)
 
         # Generamos un mensaje de respuesta
         return build_message(Graph(),
