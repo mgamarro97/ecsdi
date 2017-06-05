@@ -34,25 +34,13 @@ import json
 __author__ = 'bejar'
 
 class Vuelo():
-    def getFlights(self):
+    def getFlights(self, origen, destino, ida, vuelta):
         flights = Flights(AMADEUS_KEY)
         resp = flights.extensive_search(
-            origin='MAD',
-            destination='BCN',
-            departure_date='2017-06-05--2017-06-28',
-            duration='4--10')
+            origin=origen,
+            destination=destino,
+            departure_date='2017-06-05--2017-06-28')
         return resp
-"""
-print ("VUELO:")
-
-vuelo = json.loads(json.dumps(resp,ensure_ascii=False))
-print ("Ciudad Origen: " + vuelo["origin"])
-print ("Ciudad Destino: " + vuelo["results"][0]["destination"])
-print ("Fecha Salida: " + vuelo["results"][0]["departure_date"])
-print ("Fecha Llegada: " + vuelo["results"][0]["return_date"])
-print ("Precio Total: " + vuelo["results"][0]["price"])
-print ("Aerolinea: " + vuelo["results"][0]["airline"])
-"""
 
 class Hotel():
     def getHotel(self):

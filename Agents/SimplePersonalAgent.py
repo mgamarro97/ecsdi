@@ -152,7 +152,7 @@ def browser_cerca():
                 # Subject origen
                 subject_origen = ECSDI['Restriccion_modelo' + str(get_count())]
                 gr.add((subject_origen, RDF.type, ECSDI.Restriccion_modelo))
-                gr.add((subject_origen, ECSDI.Modelo, Literal(subject_origen, datatype=XSD.string)))
+                gr.add((subject_origen, ECSDI.Modelo, Literal(ciudad_origen, datatype=XSD.string)))
                 # Add restriccio to content
                 gr.add((contentResult, ECSDI.Restringe, URIRef(subject_origen)))
 
@@ -162,7 +162,7 @@ def browser_cerca():
                 # Subject destino
                 subject_destino = ECSDI['Restriccio_Marca' + str(get_count())]
                 gr.add((subject_destino, RDF.type, ECSDI.Restriccion_Marca))
-                gr.add((subject_destino, ECSDI.Marca, Literal(subject_destino, datatype=XSD.string)))
+                gr.add((subject_destino, ECSDI.Marca, Literal(ciudad_destino, datatype=XSD.string)))
                 # Add restriccio to content
                 gr.add((contentResult, ECSDI.Restringe, URIRef(subject_destino)))
 
