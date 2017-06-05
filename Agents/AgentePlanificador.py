@@ -184,20 +184,8 @@ def comunicacion():
                         logger.info("%s %s %s", s, p, o)
                         respfinal.add((s, p, o))
 
-                actividades = get_agent_info(agn.AgenteActividades, DirectoryAgent, AgentePlanificador, get_count())
-                contentmsg3 = ECSDI['Peticion_Actividades_' + str(get_count())]
-                gr3 = Graph()
-                gr3.add((contentmsg3, RDF.type, ECSDI.Peticion_Actividade))
-                grmsg2 = send_message(
-                    build_message(gr3, perf=ACL.request, sender=AgentePlanificador.uri, receiver=actividades.uri,
-                                  msgcnt=get_count(),
-                                  content=contentmsg3), actividades.address)
-
 
     return respfinal.serialize(format='xml'), 200
-
-
-        
 
 
 @app.route("/Stop")

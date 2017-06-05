@@ -163,27 +163,6 @@ def comunicacion():
                 restriccions = gm.objects(content, ECSDI.Restinge)
                 restriccions_dict = {}
                 logger.info("hola")
-                #for restriccio in restriccions:
-                """if gm.value(subject=restriccio, predicate=RDF.type) == ECSDI.Restriccion_Origen:
-                    origen = gm.value(subject=restriccio, predicate=ECSDI.aeropuerto_ini)
-                    logger.info('Ciudad Origen: ' + str(origen))
-                    restriccions_dict['origen'] = origen
-                elif gm.value(subject=restriccio, predicate=RDF.type) == ECSDI.Restriccion_Destino:
-                    destino = gm.value(subject=restriccio, predicate=ECSDI.aeropuerto_fi)
-                    logger.info('Ciudad Destino: ' + str(destino))
-                    restriccions_dict['destino'] = destino
-                elif gm.value(subject=restriccio, predicate=RDF.type) == ECSDI.Restriccion_Fecha_Partida:
-                    ida = gm.value(subject=restriccio, predicate=ECSDI.Fecha_Partida)
-                    logger.info('Fecha Ida: ' + str(ida))
-                    restriccions_dict['fecha_ida'] = ida
-                elif gm.value(subject=restriccio, predicate=RDF.type) == ECSDI.Restriccion_Fecha_Llegada:
-                    vuelta = gm.value(subject=restriccio, predicate=ECSDI.Fecha_Llegada)
-                    logger.info('Fecha Vuelta: ' + str(vuelta))
-                    restriccions_dict['fecha_vuelta'] = vuelta
-                elif gm.value(subject=restriccio, predicate=RDF.type) == ECSDI.Restriccion_Presupuesto:
-                    presupuesto = gm.value(subject=restriccio, predicate=ECSDI.Precio)
-                    logger.info('Presupuesto: ' + str(presupuesto))
-                    restriccions_dict['presupuesto'] = presupuesto"""
                 for restriccio in restriccions:
                     origen = gm.value(subject=restriccio, predicate=ECSDI.aeropuerto_ini)
                     logger.info('Ciudad Origen: ' + str(origen))

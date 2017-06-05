@@ -145,54 +145,11 @@ def browser_cerca():
             gr = Graph()
             gr.add((contentResult, RDF.type, ECSDI.Peticion_Transporte))
 
-            # Add restriccio ciudad origen
             ciudad_origen = request.form['ciudad_origen']
-            """if ciudad_origen:
-                # Subject origen
-                subject_origen = ECSDI['Restriccion_Origen_' + str(get_count())]
-                gr.add((subject_origen, RDF.type, ECSDI.Restriccion_Origen))
-                subject_origen = ECSDI['Origen' + str(get_count())]
-                gr.add((subject_origen, ECSDI.aeropuerto_ini, Literal(ciudad_origen, datatype=XSD.string)))
-                # Add restriccio to content
-                gr.add((contentResult, ECSDI.Restinge, URIRef(subject_origen)))"""
-
-            # Add restriccio ciudad destino
             ciudad_destino = request.form['ciudad_destino']
-            """if ciudad_destino:
-                # Subject destino
-                subject_destino = ECSDI['Restriccion_Destino_' + str(get_count())]
-                gr.add((subject_destino, RDF.type, ECSDI.Restriccion_Destino))
-                gr.add((subject_destino, ECSDI.aeropuerto_fi, Literal(ciudad_destino, datatype=XSD.string)))
-                # Add restriccio to content
-                gr.add((contentResult, ECSDI.Restinge, URIRef(subject_destino)))"""
-
-            # Add restriccio rango fechas
             fecha_ida = request.form['fecha_ida']
-            """if fecha_ida:
-                # Subject destino
-                subject_partida = ECSDI['Restriccion_Fecha_Partida_' + str(get_count())]
-                gr.add((subject_partida, RDF.type, ECSDI.Restriccion_Fecha_Partida))
-                gr.add((subject_partida, ECSDI.Fecha_Partida, Literal(fecha_ida, datatype=XSD.string)))
-                # Add restriccio to content
-                gr.add((contentResult, ECSDI.Restinge, URIRef(subject_partida)))"""
             fecha_vuelta = request.form['fecha_vuelta']
-            """if fecha_vuelta:
-                # Subject destino
-                subject_llegada = ECSDI['Restriccion_Fecha_Llegada_' + str(get_count())]
-                gr.add((subject_llegada, RDF.type, ECSDI.Restriccion_Fecha_Llegada))
-                gr.add((subject_llegada, ECSDI.Fecha_Llegada, Literal(fecha_vuelta, datatype=XSD.string)))
-                # Add restriccio to content
-                gr.add((contentResult, ECSDI.Restinge, URIRef(subject_llegada)))"""
-
-            # Add restriccio presupuesto
             presupuesto = request.form['presupuesto']
-            """if presupuesto:
-                # Subject presupuesto
-                subject_presupuesto = ECSDI['Restriccion_Presupuesto_' + str(get_count())]
-                gr.add((subject_presupuesto, RDF.type, ECSDI.Restriccion_Presupuesto))
-                gr.add((subject_presupuesto, ECSDI.Precio, Literal(presupuesto, datatype=XSD.string)))
-                # Add restriccio to content
-                gr.add((contentResult, ECSDI.Restinge, URIRef(subject_presupuesto)))"""
 
             subject = ECSDI["Restricciones"]
             gr.add((subject+"_origen", ECSDI.aeropuerto_ini, Literal(ciudad_origen,datatype=XSD.string)))
@@ -231,6 +188,12 @@ def browser_cerca():
                         subject_dict['presupuesto'] = o
                     elif p == ECSDI.Fecha_Llegada:
                         subject_dict['fecha_vuelta'] = o
+                    elif p == ECSDI.nombre:
+                        subject_dict['nombre_hotel'] = o
+                    elif p == ECSDI.direccion:
+                        subject_dict['direccion_hotel'] = o
+                    elif p == ECSDI.telefono:
+                        subject_dict['telefono_hotel'] = o
                     flights_list[subject_pos[s]] = subject_dict
             return render_template('busqueda.html', plan=flights_list)
 

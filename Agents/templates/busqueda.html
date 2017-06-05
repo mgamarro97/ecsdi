@@ -22,12 +22,19 @@
 {% else %}
     <form method="post">
         {% for item in plan %}
-            <p><b>USUARIO: </b>{{item.usuario}}</p>
-            <p><b>CIUDAD DE ORIGEN: </b>{{item.ciudad_origen}}</p>
-            <p><b>CIUDAD DE DESTINO: </b>{{item.ciudad_destino}}</p>
-            <p><b>FECHA DE IDA: </b>{{item.fecha_ida}}</p>
-            <p><b>FECHA DE VUELTA: </b>{{item.fecha_vuelta}}</p>
-            <p><b>PRESUPUESTO: </b>{{item.presupuesto}}</p>
+            {% if item.ciudad_origen %}
+                <p><h5>VUELO:</h5></p>
+                <p><b>CIUDAD DE ORIGEN: </b>{{item.ciudad_origen}}</p>
+                <p><b>CIUDAD DE DESTINO: </b>{{item.ciudad_destino}}</p>
+                <p><b>FECHA DE IDA: </b>{{item.fecha_ida}}</p>
+                <p><b>FECHA DE VUELTA: </b>{{item.fecha_vuelta}}</p>
+                <p><b>PRESUPUESTO: </b>{{item.presupuesto}}</p>
+            {% else %}
+                <p><h5>HOTEL:</h5></p>
+                <p><b>NOMBRE: </b>{{item.nombre_hotel}}</p>
+                <p><b>DIRECCION: </b>{{item.direccion_hotel}}</p>
+                <p><b>TELEFONO: </b>{{item.telefono_hotel}}</p>
+            {% endif %}
         {% endfor %}
         <input type="submit" name="submit" value="Aceptar Plan de Viaje">
     </form>
