@@ -129,7 +129,7 @@ def comunicacion():
     """
     Entrypoint de comunicacion
     """
-    logger.info('Peticion de informacion transportes recibida')
+    logger.info('Peticion de informacion actividades recibida')
     global dsGraph
 
     message = request.args['content']
