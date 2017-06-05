@@ -12,6 +12,7 @@ Tiene una funcion AgentBehavior1 que se lanza como un thread concurrente
 Asume que el agente de registro esta en el puerto 9000
 
 """
+from InfoSources.API.InfoGooglePlaces import Hotel
 
 __author__ = 'jjm'
 
@@ -23,11 +24,13 @@ import argparse
 import socket
 from multiprocessing import Process
 from flask import Flask, render_template, request, json
-from rdflib import Graph, Namespace, RDF, URIRef, Literal, XSD, parser
+from rdflib import Graph, Namespace, RDF, URIRef, Literal, XSD, parser, logger
 from AgentUtil.Agent import Agent
 from AgentUtil.FlaskServer import shutdown_server
 from AgentUtil.Logging import config_logger
+import json
 
+# Configuration stuff
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--open', help="Define si el servidor est abierto al exterior o no", action='store_true',
@@ -44,7 +47,7 @@ args = parser.parse_args()
 
 # Configuration stuff
 if args.port is None:
-    port = 9085
+    port = 9090
 else:
     port = args.port
 
@@ -68,12 +71,10 @@ else:
     # Message Count
     mss_cnt = 0
 
-    # Data Agent
-    # Datos del Agente
-    AgentePlanificador = Agent('AgentePlanificador',
-                        agn.AgentePlanificador,
-                        'http://%s:%d/comm' % (hostname, port),
-                        'http://%s:%d/Stop' % (hostname, port))
+    AgentePagador = Agent('AgentePagador',
+                             agn.AgentePagador,
+                             'http://%s:%d/comm' % (hostname, port),
+                             'http://%s:%d/Stop' % (hostname, port))
 
     # Directory agent address
     DirectoryAgent = Agent('DirectoryAgent',
@@ -82,12 +83,11 @@ else:
                            'http://%s:%d/Stop' % (dhostname, dport))
 
     # Global triplestore graph
-    dsGraph = Graph()
+    dsgraph = Graph()
 
-    # Queue
-    queue = Queue()
+    cola1 = Queue()
 
-    # Flask app
+    # Flask stuff
     app = Flask(__name__)
 
 
@@ -95,15 +95,6 @@ def get_count():
     global mss_cnt
     mss_cnt += 1
     return mss_cnt
-
-
-# Global triplestore graph
-dsgraph = Graph()
-
-cola1 = Queue()
-
-# Flask stuff
-app = Flask(__name__)
 
 def register_message():
     """
@@ -116,68 +107,12 @@ def register_message():
     """
 
     logger.info('Nos registramos')
-    logger.info(AgentePlanificador.address)
+    logger.info(AgentePagador.address)
 
-    gr = register_agent(AgentePlanificador, DirectoryAgent, AgentePlanificador.uri, get_count())
+    gr = register_agent(AgentePagador, DirectoryAgent, AgentePagador.uri, get_count())
     return gr
 
-@app.route("/comm")
-def comunicacion():
-    """
-    Entrypoint de comunicacion
-    """
-    logger.info('Peticion de plan recibida')
-    global dsGraph
 
-    message = request.args['content']
-    gm = Graph()
-    gm.parse(data=message)
-
-    msgdic = get_message_properties(gm)
-
-    gr = None
-    vectfinal = Graph()
-    if msgdic is None:
-        # Si no es, respondemos que no hemos entendido el mensaje
-        gr = build_message(Graph(), ACL['not-understood'], sender=AgentePlanificador.uri, msgcnt=get_count())
-    else:
-        # Obtenemos la performativa
-        if msgdic['performative'] != ACL.request:
-            # Si no es un request, respondemos que no hemos entendido el mensaje
-            gr = build_message(Graph(),
-                               ACL['not-understood'],
-                               sender=DirectoryAgent.uri,
-                               msgcnt=get_count())
-        else:
-            # Extraemos el objeto del contenido que ha de ser una accion de la ontologia
-            # de registro
-            content = msgdic['content']
-            # Averiguamos el tipo de la accion
-            accion = gm.value(subject=content, predicate=RDF.type)
-
-            # Accion de busqueda
-            if accion == ECSDI.Peticion_Transporte:
-                transporte = get_agent_info(agn.AgenteTransporte, DirectoryAgent, AgentePlanificador, get_count())
-                contentmsg = ECSDI['Peticion_Transporte_' + str(get_count())]
-                gr = Graph()
-                gr.add((contentmsg, RDF.type, ECSDI.Peticion_Transporte))
-                grmsg = send_message(build_message(gr,  perf=ACL.request, sender=AgentePlanificador.uri, receiver=transporte.uri,
-                              msgcnt=get_count(),
-                              content=contentmsg), transporte.address)
-
-                alojamiento = get_agent_info(agn.AgenteAlojamiento, DirectoryAgent, AgentePlanificador, get_count())
-                contentmsg2 = ECSDI['Cerca_productes_' + str(get_count())]
-                gr2 = Graph()
-                gr2.add((contentmsg2, RDF.type, ECSDI.Cerca_productes))
-                grmsg2 = send_message(build_message(gr2, perf=ACL.request, sender=AgentePlanificador.uri, receiver=alojamiento.uri,
-                              msgcnt=get_count(),
-                              content=contentmsg2), alojamiento.address)
-
-
-    return grmsg.serialize(format='xml'), 200
-
-
-        
 
 
 @app.route("/Stop")
@@ -206,9 +141,8 @@ def register(cola):
 
     :return:
     """
-
     gr = register_message()
-    pass
+
 
 
 if __name__ == '__main__':
@@ -222,5 +156,4 @@ if __name__ == '__main__':
     # Esperamos a que acaben los behaviors
     ab1.join()
     print('The End')
-
 

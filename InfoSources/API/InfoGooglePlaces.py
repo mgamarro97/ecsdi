@@ -34,8 +34,16 @@ class Actividad():
         query_result = google_places.nearby_search(
             location=u'Barcelona, España', keyword='restaurant',
             radius=500, types=['restaurant'])
-"""
+
+class Hotel():
+    def getHoteles(self):
+        query_result = google_places.nearby_search(
+            location=u'Barcelona, España', keyword='hotel',
+            radius=300, types=['hotel'])
+        return query_result
+
 # Imprimimos informacion de los resultados
+'''
 print (query_result)
 if query_result.has_attributions:
     print (query_result.html_attributions)
@@ -48,6 +56,5 @@ for place in query_result.places:
     place.get_details()
     print(place.details['vicinity'])
     print (place.local_phone_number)
-    
-"""
+'''
 

@@ -98,7 +98,6 @@ def get_count():
     mss_cnt += 1
     return mss_cnt
 
-
 # Global triplestore graph
 dsgraph = Graph()
 
@@ -122,7 +121,6 @@ def register_message():
 
     gr = register_agent(AgenteActividades, DirectoryAgent, AgenteActividades.uri, get_count())
     return gr
-
 
 
 @app.route("/comm")
@@ -187,6 +185,7 @@ def comunicacion():
     serialize = gr.serialize(format='xml')
     return serialize, 200
 
+
 def findActividades():
     vuelos = Vuelo().getFlights()
     result = Graph()
@@ -213,6 +212,7 @@ def findActividades():
         i=i+1
     return result
 
+
 @app.route("/Stop")
 def stop():
     """
@@ -233,32 +233,21 @@ def tidyup():
     pass
 
 
-def register(queue):
+def agentbehavior1(cola):
     """
     Un comportamiento del agente
 
     :return:
     """
     gr = register_message()
-    """""
-    vuelos = Vuelo().getFlights()
-    """""
-    """
-    print("VUELO:")
 
-    vuelo = json.loads(json.dumps(vuelos, ensure_ascii=False))
-    print("Ciudad Origen: " + vuelo["origin"])
-    print("Ciudad Destino: " + vuelo["results"][0]["destination"])
-    print("Fecha Salida: " + vuelo["results"][0]["departure_date"])
-    print("Fecha Llegada: " + vuelo["results"][0]["return_date"])
-    print("Precio Total: " + vuelo["results"][0]["price"])
-    print("Aerolinea: " + vuelo["results"][0]["airline"])
-    """
+    pass
 
 
 if __name__ == '__main__':
     # Ponemos en marcha los behaviors
-    ab1 = Process(target=register, args=(queue,))
+    ab1 = Process(target=agentbehavior1, args=(queue,))
+
     ab1.start()
 
     # Ponemos en marcha el servidor
