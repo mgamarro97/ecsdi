@@ -130,7 +130,7 @@ def comunicacion():
     """
     Entrypoint de comunicacion
     """
-    logger.info('Peticion de informacion recibida')
+    logger.info('Peticion de informacion transportes recibida')
     global dsGraph
 
     message = request.args['content']
@@ -210,7 +210,7 @@ def findProducts(presuppuesto=None, destino=None, ida=0.0, vuelta=sys.float_info
         aerolinea = vuelo["results"][i]["airline"]
         print(origen+" "+destination+" "+departure+" "+return_date+" "+price+" "+aerolinea)
         logger.info("%s", i)
-        subject = ECSDI[aerolinea + "_" + departure]
+        subject = ECSDI[aerolinea + "_" + str(i)]
         result.add((subject, RDF.type, ECSDI.Producte))
         result.add((subject, ECSDI.Marca, Literal(origen, datatype=XSD.string)))
         result.add((subject, ECSDI.Modelo, Literal(destination, datatype=XSD.string)))
@@ -241,7 +241,7 @@ def tidyup():
     pass
 
 
-def agentbehavior1(queue):
+def register(queue):
     """
     Un comportamiento del agente
 
@@ -266,7 +266,7 @@ def agentbehavior1(queue):
 
 if __name__ == '__main__':
     # Ponemos en marcha los behaviors
-    ab1 = Process(target=agentbehavior1, args=(queue,))
+    ab1 = Process(target=register, args=(queue,))
     ab1.start()
 
     # Ponemos en marcha el servidor

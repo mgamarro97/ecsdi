@@ -189,15 +189,12 @@ def browser_cerca():
                 # Add restriccio to content
                 gr.add((contentResult, ECSDI.Restringe, URIRef(subject_presupuesto)))
 
-            transporte = get_agent_info(agn.AgenteTransporte, DirectoryAgent, AgentePersonal, get_count())
-
-
-            logger.info("%s, %s, %s", transporte.name, transporte.address, transporte.uri)
+            planificador = get_agent_info(agn.AgentePlanificador, DirectoryAgent, AgentePersonal, get_count())
 
             gr2 = send_message(
-                build_message(gr, perf=ACL.request, sender=AgentePersonal.uri, receiver=transporte.uri,
+                build_message(gr, perf=ACL.request, sender=AgentePersonal.uri, receiver=planificador.uri,
                               msgcnt=get_count(),
-                              content=contentResult), transporte.address)
+                              content=contentResult), planificador.address)
 
             index = 0
             subject_pos = {}
