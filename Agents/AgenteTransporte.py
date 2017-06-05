@@ -159,32 +159,47 @@ def comunicacion():
             # Averiguamos el tipo de la accion
             accion = gm.value(subject=content, predicate=RDF.type)
 
-            # Accion de busqueda
-            if accion == ECSDI.Cerca_productes:
-                restriccions = gm.objects(content, ECSDI.Restringe)
+            if accion == ECSDI.Peticion_Transporte:
+                restriccions = gm.objects(content, ECSDI.Restinge)
                 restriccions_dict = {}
+                logger.info("hola")
+                #for restriccio in restriccions:
+                """if gm.value(subject=restriccio, predicate=RDF.type) == ECSDI.Restriccion_Origen:
+                    origen = gm.value(subject=restriccio, predicate=ECSDI.aeropuerto_ini)
+                    logger.info('Ciudad Origen: ' + str(origen))
+                    restriccions_dict['origen'] = origen
+                elif gm.value(subject=restriccio, predicate=RDF.type) == ECSDI.Restriccion_Destino:
+                    destino = gm.value(subject=restriccio, predicate=ECSDI.aeropuerto_fi)
+                    logger.info('Ciudad Destino: ' + str(destino))
+                    restriccions_dict['destino'] = destino
+                elif gm.value(subject=restriccio, predicate=RDF.type) == ECSDI.Restriccion_Fecha_Partida:
+                    ida = gm.value(subject=restriccio, predicate=ECSDI.Fecha_Partida)
+                    logger.info('Fecha Ida: ' + str(ida))
+                    restriccions_dict['fecha_ida'] = ida
+                elif gm.value(subject=restriccio, predicate=RDF.type) == ECSDI.Restriccion_Fecha_Llegada:
+                    vuelta = gm.value(subject=restriccio, predicate=ECSDI.Fecha_Llegada)
+                    logger.info('Fecha Vuelta: ' + str(vuelta))
+                    restriccions_dict['fecha_vuelta'] = vuelta
+                elif gm.value(subject=restriccio, predicate=RDF.type) == ECSDI.Restriccion_Presupuesto:
+                    presupuesto = gm.value(subject=restriccio, predicate=ECSDI.Precio)
+                    logger.info('Presupuesto: ' + str(presupuesto))
+                    restriccions_dict['presupuesto'] = presupuesto"""
                 for restriccio in restriccions:
-                    if gm.value(subject=restriccio, predicate=RDF.type) == ECSDI.Restriccion_Marca:
-                        destino = gm.value(subject=restriccio, predicate=ECSDI.Marca)
-                        logger.info('Ciudad Destino: ' + destino)
-                        restriccions_dict['brand'] = destino
-                    elif gm.value(subject=restriccio, predicate=RDF.type) == ECSDI.Restriccion_modelo:
-                        origen = gm.value(subject=restriccio, predicate=ECSDI.Modelo)
-                        logger.info('Ciudad Origen: ' + origen)
-                        restriccions_dict['model'] = origen
-                    elif gm.value(subject=restriccio, predicate=RDF.type) == ECSDI.Rango_precio:
-                        ida = gm.value(subject=restriccio, predicate=ECSDI.Precio_max)
-                        vuelta = gm.value(subject=restriccio, predicate=ECSDI.Precio_min)
-                        if ida:
-                            logger.info('Fecha Ida: ' + ida)
-                            restriccions_dict['min_price'] = ida.toPython()
-                        if vuelta:
-                            logger.info('Fecha Vuelta: ' + vuelta)
-                            restriccions_dict['max_price'] = vuelta.toPython()
-                    elif gm.value(subject=restriccio, predicate=RDF.type) == ECSDI.RestriccioNom:
-                        presupuesto = gm.value(subject=restriccio, predicate=ECSDI.Nom)
-                        logger.info('Presupuesto: ' + presupuesto)
-                        restriccions_dict['name'] = presupuesto
+                    origen = gm.value(subject=restriccio, predicate=ECSDI.aeropuerto_ini)
+                    logger.info('Ciudad Origen: ' + str(origen))
+                    restriccions_dict['origen'] = origen
+                    destino = gm.value(subject=restriccio, predicate=ECSDI.aeropuerto_fi)
+                    logger.info('Ciudad Destino: ' + str(destino))
+                    restriccions_dict['destino'] = destino
+                    ida = gm.value(subject=restriccio, predicate=ECSDI.Fecha_Partida)
+                    logger.info('Fecha Ida: ' + str(ida))
+                    restriccions_dict['fecha_ida'] = ida
+                    vuelta = gm.value(subject=restriccio, predicate=ECSDI.Fecha_Llegada)
+                    logger.info('Fecha Vuelta: ' + str(vuelta))
+                    restriccions_dict['fecha_vuelta'] = vuelta
+                    presupuesto = gm.value(subject=restriccio, predicate=ECSDI.Precio)
+                    logger.info('Presupuesto: ' + str(presupuesto))
+                    restriccions_dict['presupuesto'] = presupuesto
 
                 gr = findVuelos()
 
@@ -209,15 +224,14 @@ def findVuelos():
         price = vuelo["results"][i]["price"]
         aerolinea = vuelo["results"][i]["airline"]
         print(origen+" "+destination+" "+departure+" "+return_date+" "+price+" "+aerolinea)
-        logger.info("%s", i)
         subject = ECSDI[aerolinea + "_" + str(i)]
-        result.add((subject, RDF.type, ECSDI.Producte))
-        result.add((subject, ECSDI.Marca, Literal(origen, datatype=XSD.string)))
-        result.add((subject, ECSDI.Modelo, Literal(destination, datatype=XSD.string)))
-        result.add((subject, ECSDI.Precio, Literal(departure, datatype=XSD.date)))
-        result.add((subject, ECSDI.Peso, Literal(return_date, datatype=XSD.date)))
-        result.add((subject, ECSDI.Nombre, Literal(price, datatype=XSD.float)))
-        result.add((subject, ECSDI.Valoracion, Literal(aerolinea, datatype=XSD.string)))
+        result.add((subject, RDF.type, ECSDI.Transporte))
+        result.add((subject, ECSDI.aeropuerto_ini, Literal(origen, datatype=XSD.string)))
+        result.add((subject, ECSDI.aeropuerto_fi, Literal(destination, datatype=XSD.string)))
+        result.add((subject, ECSDI.Fecha_Partida, Literal(departure, datatype=XSD.date)))
+        result.add((subject, ECSDI.Fecha_Llegada, Literal(return_date, datatype=XSD.date)))
+        result.add((subject, ECSDI.Precio, Literal(price, datatype=XSD.float)))
+        result.add((subject, ECSDI.compañia, Literal(aerolinea, datatype=XSD.string)))
         i=i+1
     return result
 
