@@ -217,7 +217,7 @@ def findProducts(presuppuesto=None, destino=None, ida=0.0, vuelta=sys.float_info
         result.add((subject, ECSDI.Precio, Literal(departure, datatype=XSD.date)))
         result.add((subject, ECSDI.Peso, Literal(return_date, datatype=XSD.date)))
         result.add((subject, ECSDI.Nombre, Literal(price, datatype=XSD.float)))
-        result.add((subject, ECSDI.Nombre, Literal(aerolinea, datatype=XSD.string)))
+        result.add((subject, ECSDI.Valoracion, Literal(aerolinea, datatype=XSD.string)))
         i=i+1
     return result
 

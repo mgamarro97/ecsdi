@@ -198,10 +198,31 @@ def browser_cerca():
                 build_message(gr, perf=ACL.request, sender=AgentePersonal.uri, receiver=transporte.uri,
                               msgcnt=get_count(),
                               content=contentResult), transporte.address)
-            r = get_message_properties(gr2)
-            logger.info(r)
 
-            return render_template('busqueda.html', plan=gr2)
+            index = 0
+            subject_pos = {}
+            flights_list = []
+            for s, p, o in gr2:
+                if s not in subject_pos:
+                    subject_pos[s] = index
+                    flights_list.append({})
+                    index += 1
+                if s in subject_pos:
+                    subject_dict = flights_list[subject_pos[s]]
+                    if p == RDF.type:
+                        subject_dict['url'] = s
+                    elif p == ECSDI.Marca:
+                        subject_dict['ciudad_origen'] = o
+                    elif p == ECSDI.Modelo:
+                        subject_dict['ciudad_destino'] = o
+                    elif p == ECSDI.Precio:
+                        subject_dict['fecha_ida'] = o
+                    elif p == ECSDI.Nombre:
+                        subject_dict['presupuesto'] = o
+                    elif p == ECSDI.Peso:
+                        subject_dict['fecha_vuelta'] = o
+                    flights_list[subject_pos[s]] = subject_dict
+            return render_template('busqueda.html', plan=flights_list)
 
 
 @app.route("/Stop")

@@ -21,12 +21,14 @@
     </form>
 {% else %}
     <form method="post">
-        <p><b>USUARIO: </b>{{plan.usuario}}</p>
-        <p><b>CIUDAD DE ORIGEN: </b>{{plan.ciudad_origen}}</p>
-        <p><b>CIUDAD DE DESTINO: </b>{{plan.ciudad_destino}}</p>
-        <p><b>FECHA DE IDA: </b>{{plan.fecha_ida}}</p>
-        <p><b>FECHA DE VUELTA: </b>{{plan.fecha_vuelta}}</p>
-        <p><b>PRESUPUESTO: </b>{{plan.presupuesto}}</p>
+        {% for item in plan %}
+            <p><b>USUARIO: </b>{{item.usuario}}</p>
+            <p><b>CIUDAD DE ORIGEN: </b>{{item.ciudad_origen}}</p>
+            <p><b>CIUDAD DE DESTINO: </b>{{item.ciudad_destino}}</p>
+            <p><b>FECHA DE IDA: </b>{{item.fecha_ida}}</p>
+            <p><b>FECHA DE VUELTA: </b>{{item.fecha_vuelta}}</p>
+            <p><b>PRESUPUESTO: </b>{{item.presupuesto}}</p>
+        {% endfor %}
         <input type="submit" name="submit" value="Aceptar Plan de Viaje">
     </form>
 {% endif %}
