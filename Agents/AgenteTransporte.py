@@ -224,7 +224,7 @@ def findVuelos():
         aerolinea = vuelo["results"][i]["airline"]
         print(origen+" "+destination+" "+departure+" "+return_date+" "+price+" "+aerolinea)
 
-        subject = ECSDI[aerolinea + "_" + str(i)]
+        subject = ECSDI["vuelo" + "_" + str(i)]
         result.add((subject, RDF.type, ECSDI.Transporte))
         result.add((subject, ECSDI.aeropuerto_ini, Literal(origen, datatype=XSD.string)))
         result.add((subject, ECSDI.aeropuerto_fi, Literal(destination, datatype=XSD.string)))
