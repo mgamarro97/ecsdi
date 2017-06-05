@@ -194,7 +194,6 @@ def comunicacion():
     return serialize, 200
 
 def findVuelos():
-    graph = Graph()
     vuelos = Vuelo().getFlights()
     result = Graph()
     result.bind('ECSDI', ECSDI)
@@ -210,7 +209,7 @@ def findVuelos():
         aerolinea = vuelo["results"][i]["airline"]
         print(origen+" "+destination+" "+departure+" "+return_date+" "+price+" "+aerolinea)
         logger.info("%s", i)
-        subject = ECSDI[aerolinea + "_" + str(i)]
+        subject = ECSDI["Vuelo" + "_" + str(i)]
         result.add((subject, RDF.type, ECSDI.Producte))
         result.add((subject, ECSDI.Marca, Literal(origen, datatype=XSD.string)))
         result.add((subject, ECSDI.Modelo, Literal(destination, datatype=XSD.string)))
