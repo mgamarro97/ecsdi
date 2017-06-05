@@ -186,16 +186,16 @@ def comunicacion():
                         logger.info('Presupuesto: ' + presupuesto)
                         restriccions_dict['name'] = presupuesto
 
-                gr = findVuelos(origen,destino)
+                gr = findVuelos()
 
     logger.info('Respondemos a la peticion')
 
     serialize = gr.serialize(format='xml')
     return serialize, 200
 
-def findVuelos(origen, destino, ida=None, vuelta=None):
+def findVuelos():
     graph = Graph()
-    vuelos = Vuelo().getFlights(str(origen),str(destino), str(ida), str(vuelta))
+    vuelos = Vuelo().getFlights()
     result = Graph()
     result.bind('ECSDI', ECSDI)
     vuelo = json.loads(json.dumps(vuelos, ensure_ascii=False))
