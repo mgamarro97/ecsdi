@@ -136,7 +136,7 @@ def comunicacion():
     msgdic = get_message_properties(gm)
 
     gr = None
-    vectfinal = Graph()
+    respfinal = Graph()
     if msgdic is None:
         # Si no es, respondemos que no hemos entendido el mensaje
         gr = build_message(Graph(), ACL['not-understood'], sender=AgentePlanificador.uri, msgcnt=get_count())
@@ -165,6 +165,13 @@ def comunicacion():
                               msgcnt=get_count(),
                               content=contentmsg), transporte.address)
 
+                for(s, p, o) in grmsg:
+                    if s == ECSDI['vuelo_1']:
+                        logger.info("%s %s %s", s, p, o)
+                        respfinal.add((s, p, o))
+
+
+
                 alojamiento = get_agent_info(agn.AgenteAlojamiento, DirectoryAgent, AgentePlanificador, get_count())
                 contentmsg2 = ECSDI['Peticion_Alojamiento_' + str(get_count())]
                 gr2 = Graph()
@@ -172,6 +179,10 @@ def comunicacion():
                 grmsg2 = send_message(build_message(gr2, perf=ACL.request, sender=AgentePlanificador.uri, receiver=alojamiento.uri,
                               msgcnt=get_count(),
                               content=contentmsg2), alojamiento.address)
+                for (s, p, o) in grmsg2:
+                    if s == ECSDI['Alojamiento_1']:
+                        logger.info("%s %s %s", s, p, o)
+                        respfinal.add((s, p, o))
 
                 actividades = get_agent_info(agn.AgenteActividades, DirectoryAgent, AgentePlanificador, get_count())
                 contentmsg3 = ECSDI['Peticion_Actividades_' + str(get_count())]
@@ -183,7 +194,7 @@ def comunicacion():
                                   content=contentmsg3), actividades.address)
 
 
-    return grmsg.serialize(format='xml'), 200
+    return respfinal.serialize(format='xml'), 200
 
 
         
