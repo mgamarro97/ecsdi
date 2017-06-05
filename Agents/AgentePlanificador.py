@@ -156,11 +156,11 @@ def comunicacion():
             accion = gm.value(subject=content, predicate=RDF.type)
 
             # Accion de busqueda
-            if accion == ECSDI.Cerca_productes:
+            if accion == ECSDI.Peticion_Transporte:
                 transporte = get_agent_info(agn.AgenteTransporte, DirectoryAgent, AgentePlanificador, get_count())
-                contentmsg = ECSDI['Cerca_productes_' + str(get_count())]
+                contentmsg = ECSDI['Peticion_Transporte_' + str(get_count())]
                 gr = Graph()
-                gr.add((contentmsg, RDF.type, ECSDI.Cerca_productes))
+                gr.add((contentmsg, RDF.type, ECSDI.Peticion_Transporte))
                 grmsg = send_message(build_message(gr,  perf=ACL.request, sender=AgentePlanificador.uri, receiver=transporte.uri,
                               msgcnt=get_count(),
                               content=contentmsg), transporte.address)
