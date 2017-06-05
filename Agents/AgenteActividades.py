@@ -12,6 +12,8 @@ Tiene una funcion AgentBehavior1 que se lanza como un thread concurrente
 Asume que el agente de registro esta en el puerto 9000
 
 """
+from random import randint
+
 from InfoSources.API.InfoAmadeus import Vuelo
 from InfoSources.API.InfoGooglePlaces import Actividad
 
@@ -206,6 +208,7 @@ def findActividades():
         result.add((subject, ECSDI.nombre, Literal(name, datatype=XSD.string)))
         result.add((subject, ECSDI.direccion, Literal(details, datatype=XSD.string)))
         result.add((subject, ECSDI.telefono, Literal(phoneNum, datatype=XSD.date)))
+        result.add((subject,ECSDI.Precio, Literal(str(randint(20, 100)), datatype=XSD.string)))
         i = i + 1
     i = 0
     for place in restaurantes.places:
@@ -221,6 +224,8 @@ def findActividades():
         result.add((subject, ECSDI.nombre, Literal(name, datatype=XSD.string)))
         result.add((subject, ECSDI.direccion, Literal(details, datatype=XSD.string)))
         result.add((subject, ECSDI.telefono, Literal(phoneNum, datatype=XSD.date)))
+        result.add((subject,ECSDI.Precio, Literal(str(randint(20, 100)), datatype=XSD.string)))
+
         i = i + 1
     return result
 

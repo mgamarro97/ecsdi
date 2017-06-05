@@ -167,7 +167,7 @@ def comunicacion():
                               content=contentmsg), transporte.address)
 
                 for(s, p, o) in grmsg:
-                    if s == ECSDI['vuelo_'+str(random(0,9))]:
+                    if s == ECSDI['vuelo_1']:
                         respfinal.add((s, p, o))
 
                 alojamiento = get_agent_info(agn.AgenteAlojamiento, DirectoryAgent, AgentePlanificador, get_count())
@@ -178,7 +178,7 @@ def comunicacion():
                               msgcnt=get_count(),
                               content=contentmsg2), alojamiento.address)
                 for (s, p, o) in grmsg2:
-                    if s == ECSDI['Alojamiento_'+str(random(0,9))]:
+                    if s == ECSDI['Alojamiento_2']:
                         respfinal.add((s, p, o))
 
                 actividades = get_agent_info(agn.AgenteActividades, DirectoryAgent, AgentePlanificador, get_count())
@@ -190,10 +190,10 @@ def comunicacion():
                                   msgcnt=get_count(),
                                   content=contentmsg3), actividades.address)
                 for (s, p, o) in grmsg3:
-                    if s == ECSDI['Museos_'+str(random(0,9))]:
+                    if s == ECSDI['Museos_3']:
                         respfinal.add((s, p, o))
                 for (s, p, o) in grmsg3:
-                    if s == ECSDI['Restaurantes_'+str(random(0,9))]:
+                    if s == ECSDI['Restaurantes_1']:
                         respfinal.add((s, p, o))
 
     return respfinal.serialize(format='xml'), 200
