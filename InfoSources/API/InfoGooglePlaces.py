@@ -24,10 +24,17 @@ from AgentUtil.APIKeys import GOOGLEAPI_KEY
 
 google_places = GooglePlaces(GOOGLEAPI_KEY)
 
-query_result = google_places.nearby_search(
-    location=u'Barcelona, España', keyword='hotel',
-    radius=300, types=['hotel'])
+class Actividad():
+    def getMuseos(self):
+        query_result = google_places.nearby_search(
+            location=u'Barcelona, España', keyword='museum',
+            radius=500, types=['museum'])
 
+    def getRestaurantes(self):
+        query_result = google_places.nearby_search(
+            location=u'Barcelona, España', keyword='restaurant',
+            radius=500, types=['restaurant'])
+"""
 # Imprimimos informacion de los resultados
 print (query_result)
 if query_result.has_attributions:
@@ -41,4 +48,6 @@ for place in query_result.places:
     place.get_details()
     print(place.details['vicinity'])
     print (place.local_phone_number)
+    
+"""
 
