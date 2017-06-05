@@ -47,7 +47,7 @@ args = parser.parse_args()
 
 # Configuration stuff
 if args.port is None:
-    port = 9086
+    port = 9095
 else:
     port = args.port
 

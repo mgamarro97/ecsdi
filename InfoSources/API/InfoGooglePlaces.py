@@ -29,11 +29,13 @@ class Actividad():
         query_result = google_places.nearby_search(
             location=u'Barcelona, España', keyword='museum',
             radius=500, types=['museum'])
+        return query_result
 
     def getRestaurantes(self):
         query_result = google_places.nearby_search(
             location=u'Barcelona, España', keyword='restaurant',
             radius=500, types=['restaurant'])
+        return query_result
 
 class Hotel():
     def getHoteles(self):
