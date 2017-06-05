@@ -147,7 +147,7 @@ def comunicacion():
             accion = gm.value(subject=content, predicate=RDF.type)
 
             # Accion de busqueda
-            if accion == ECSDI.Cerca_productes:
+            if accion == ECSDI.Peticion_Alojamiento:
                 gr = findHoteles()
                 logger.info('Api usada')
 
@@ -184,6 +184,7 @@ def register(cola):
     gr = register_message()
 
     pass
+
 def findHoteles():
     hoteles = Hotel().getHoteles()
     result = Graph()
@@ -203,30 +204,11 @@ def findHoteles():
         phoneNum = place.local_phone_number
 
         subject=ECSDI["Alojamiento"+"_"+str(i)]
-        result.add((subject, RDF.type, ECSDI.Producte))
-        result.add((subject, ECSDI.Marca, Literal(name, datatype=XSD.string)))
-        result.add((subject, ECSDI.Modelo, Literal(details, datatype=XSD.string)))
-        result.add((subject, ECSDI.Precio, Literal(phoneNum, datatype=XSD.date)))
+        result.add((subject, RDF.type, ECSDI.Alojamiento))
+        result.add((subject, ECSDI.nombre, Literal(name, datatype=XSD.string)))
+        result.add((subject, ECSDI.direccion, Literal(details, datatype=XSD.string)))
+        result.add((subject, ECSDI.telefono, Literal(phoneNum, datatype=XSD.date)))
         i = i+1
-        '''
-
-    while i < 10:
-        destination = vuelo["results"][i]["destination"]
-        departure = vuelo["results"][i]["departure_date"]
-        return_date = vuelo["results"][i]["return_date"]
-        price = vuelo["results"][i]["price"]
-        aerolinea = vuelo["results"][i]["airline"]
-        print(origen + " " + destination + " " + departure + " " + return_date + " " + price + " " + aerolinea)
-        logger.info("%s", i)
-        subject = ECSDI[aerolinea + "_" + str(i)]
-        result.add((subject, RDF.type, ECSDI.Producte))
-        result.add((subject, ECSDI.Marca, Literal(origen, datatype=XSD.string)))
-        result.add((subject, ECSDI.Modelo, Literal(destination, datatype=XSD.string)))
-        result.add((subject, ECSDI.Precio, Literal(departure, datatype=XSD.date)))
-        result.add((subject, ECSDI.Peso, Literal(return_date, datatype=XSD.date)))
-        result.add((subject, ECSDI.Nombre, Literal(price, datatype=XSD.float)))
-        result.add((subject, ECSDI.Valoracion, Literal(aerolinea, datatype=XSD.string)))
-        i = i + 1'''
     
     return result
 

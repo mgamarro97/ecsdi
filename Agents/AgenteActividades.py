@@ -13,6 +13,7 @@ Asume que el agente de registro esta en el puerto 9000
 
 """
 from InfoSources.API.InfoAmadeus import Vuelo
+from InfoSources.API.InfoGooglePlaces import Actividad
 
 __author__ = 'jjm'
 
@@ -187,29 +188,40 @@ def comunicacion():
 
 
 def findActividades():
-    vuelos = Vuelo().getFlights()
+    museos = Actividad().getMuseos()
+    restaurantes = Actividad().getRestaurantes()
     result = Graph()
     result.bind('ECSDI', ECSDI)
-    vuelo = json.loads(json.dumps(vuelos, ensure_ascii=False))
     i = 0
-    origen = vuelo["origin"]
+    for place in museos.places:
+        # Returned places from a query are place summaries.
+        name = place.name
+        # The following method has to make a further API call.
+        place.get_details()
+        details = place.details['vicinity']
+        phoneNum = place.local_phone_number
 
-    while i < 10:
-        destination = vuelo["results"][i]["destination"]
-        departure = vuelo["results"][i]["departure_date"]
-        return_date = vuelo["results"][i]["return_date"]
-        price = vuelo["results"][i]["price"]
-        aerolinea = vuelo["results"][i]["airline"]
-        print(origen+" "+destination+" "+departure+" "+return_date+" "+price+" "+aerolinea)
-        subject = ECSDI[aerolinea + "_" + str(i)]
-        result.add((subject, RDF.type, ECSDI.Transporte))
-        result.add((subject, ECSDI.aeropuerto_ini, Literal(origen, datatype=XSD.string)))
-        result.add((subject, ECSDI.aeropuerto_fi, Literal(destination, datatype=XSD.string)))
-        result.add((subject, ECSDI.Fecha_Partida, Literal(departure, datatype=XSD.date)))
-        result.add((subject, ECSDI.Fecha_Llegada, Literal(return_date, datatype=XSD.date)))
-        result.add((subject, ECSDI.Precio, Literal(price, datatype=XSD.float)))
-        result.add((subject, ECSDI.compañia, Literal(aerolinea, datatype=XSD.string)))
-        i=i+1
+        subject = ECSDI["Museos" + "_" + str(i)]
+        result.add((subject, RDF.type, ECSDI.Actividad))
+        result.add((subject, ECSDI.nombre, Literal(name, datatype=XSD.string)))
+        result.add((subject, ECSDI.direccion, Literal(details, datatype=XSD.string)))
+        result.add((subject, ECSDI.telefono, Literal(phoneNum, datatype=XSD.date)))
+        i = i + 1
+    i = 0
+    for place in restaurantes.places:
+        # Returned places from a query are place summaries.
+        name = place.name
+        # The following method has to make a further API call.
+        place.get_details()
+        details = place.details['vicinity']
+        phoneNum = place.local_phone_number
+
+        subject = ECSDI["Restaurantes" + "_" + str(i)]
+        result.add((subject, RDF.type, ECSDI.Producte))
+        result.add((subject, ECSDI.nombre, Literal(name, datatype=XSD.string)))
+        result.add((subject, ECSDI.direccion, Literal(details, datatype=XSD.string)))
+        result.add((subject, ECSDI.telefono, Literal(phoneNum, datatype=XSD.date)))
+        i = i + 1
     return result
 
 

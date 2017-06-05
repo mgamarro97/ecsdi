@@ -173,9 +173,9 @@ def comunicacion():
 
 
                 alojamiento = get_agent_info(agn.AgenteAlojamiento, DirectoryAgent, AgentePlanificador, get_count())
-                contentmsg2 = ECSDI['Cerca_productes_' + str(get_count())]
+                contentmsg2 = ECSDI['Peticion_Alojamiento_' + str(get_count())]
                 gr2 = Graph()
-                gr2.add((contentmsg2, RDF.type, ECSDI.Cerca_productes))
+                gr2.add((contentmsg2, RDF.type, ECSDI.Peticion_Alojamiento))
                 grmsg2 = send_message(build_message(gr2, perf=ACL.request, sender=AgentePlanificador.uri, receiver=alojamiento.uri,
                               msgcnt=get_count(),
                               content=contentmsg2), alojamiento.address)
@@ -183,6 +183,15 @@ def comunicacion():
                     if s == ECSDI['Alojamiento_1']:
                         logger.info("%s %s %s", s, p, o)
                         respfinal.add((s, p, o))
+
+                actividades = get_agent_info(agn.AgenteActividades, DirectoryAgent, AgentePlanificador, get_count())
+                contentmsg3 = ECSDI['Peticion_Actividades_' + str(get_count())]
+                gr3 = Graph()
+                gr3.add((contentmsg3, RDF.type, ECSDI.Peticion_Actividade))
+                grmsg2 = send_message(
+                    build_message(gr3, perf=ACL.request, sender=AgentePlanificador.uri, receiver=actividades.uri,
+                                  msgcnt=get_count(),
+                                  content=contentmsg3), actividades.address)
 
 
     return respfinal.serialize(format='xml'), 200
