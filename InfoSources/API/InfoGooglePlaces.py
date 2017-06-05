@@ -36,13 +36,9 @@ if query_result.has_attributions:
 for place in query_result.places:
     # Returned places from a query are place summaries.
     print (place.name)
-    print (place.geo_location)
-    print (place.reference)
 
     # The following method has to make a further API call.
     place.get_details()
-    # Referencing any of the attributes below, prior to making a call to
-    # get_details() will raise a googleplaces.GooglePlacesAttributeError.
-    pprint.pprint(place.details)  # A dict matching the JSON response from Google.
+    print(place.details['vicinity'])
     print (place.local_phone_number)
 
