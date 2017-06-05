@@ -202,6 +202,12 @@
     <rdfs:domain rdf:resource="#Usuario"/>
     <rdfs:range rdf:resource="#Cuenta_Bancaria"/>
   </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="Restinge">
+    <rdfs:range rdf:resource="#Restricciones"/>
+    <rdfs:domain rdf:resource="#Peticion_Transporte"/>
+    <rdfs:domain rdf:resource="#Peticion_Alojamiento"/>
+    <rdfs:domain rdf:resource="#Peticion_Actividades"/>
+  </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="A">
     <rdfs:domain rdf:resource="#Plan_de_Viaje"/>
     <rdfs:range rdf:resource="#Ciudad"/>
@@ -263,8 +269,6 @@
     <rdfs:range>
       <rdfs:Datatype>
         <owl:oneOf rdf:parseType="Resource">
-          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-          >Completa</rdf:first>
           <rdf:rest rdf:parseType="Resource">
             <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
             >Media</rdf:first>
@@ -274,6 +278,8 @@
               <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
             </rdf:rest>
           </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >Completa</rdf:first>
         </owl:oneOf>
       </rdfs:Datatype>
     </rdfs:range>
@@ -314,6 +320,8 @@
     <rdfs:range>
       <rdfs:Datatype>
         <owl:oneOf rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >Cena</rdf:first>
           <rdf:rest rdf:parseType="Resource">
             <rdf:rest rdf:parseType="Resource">
               <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -323,8 +331,6 @@
             <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
             >Discoteca</rdf:first>
           </rdf:rest>
-          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-          >Cena</rdf:first>
         </owl:oneOf>
       </rdfs:Datatype>
     </rdfs:range>
@@ -350,13 +356,13 @@
     <rdfs:range>
       <rdfs:Datatype>
         <owl:oneOf rdf:parseType="Resource">
-          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-          ></rdf:first>
           <rdf:rest rdf:parseType="Resource">
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
             <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
             >Evento_Ludico</rdf:first>
           </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          ></rdf:first>
         </owl:oneOf>
       </rdfs:Datatype>
     </rdfs:range>
@@ -410,17 +416,17 @@
     <rdfs:range>
       <rdfs:Datatype>
         <owl:oneOf rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >Evento_Cultiral</rdf:first>
           <rdf:rest rdf:parseType="Resource">
             <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
             >Exposicion</rdf:first>
             <rdf:rest rdf:parseType="Resource">
-              <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
               <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
               >Visita_Guiada</rdf:first>
+              <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
             </rdf:rest>
           </rdf:rest>
-          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-          >Evento_Cultiral</rdf:first>
         </owl:oneOf>
       </rdfs:Datatype>
     </rdfs:range>
